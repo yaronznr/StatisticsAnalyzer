@@ -1,0 +1,130 @@
+﻿@model WebApp.Models.LoginModel
+@{
+    ViewBag.Title = "Statistics Analyzer";
+}
+@functions{
+    public string GetAntiForgeryToken()
+    {
+        try
+        {
+            string cookieToken, formToken;
+            AntiForgery.GetTokens(null, out cookieToken, out formToken);
+            return cookieToken + ":" + formToken;
+        }
+        catch (Exception)
+        {
+            return string.Empty;
+        }
+    }
+}
+
+<div>
+    <div id="title">@{<text>@ViewBag.Title</text>}</div>
+</div>
+
+<div id="main-content">
+    <div id="formulaPane">
+        <input id="formulaText" name="FormulaText" data-bind="value: formula, valueUpdate: 'afterkeydown', css: { formulaInProgress: inProgress, formulaStable: !inProgress() }" type="text" />
+        <input type="submit" name="AnalyzeButton" data-bind="click: analyzeModel" value="Analyze" id="AnalyzeButton" style="width:142px;margin-left: 8px"/>
+        <p class="error" data-bind="text: errorMessage"/>
+    </div>
+
+    <div id="questionPanel" class="bottomPane">
+        <div id="questionList" class="scrollable bottomPane leftPane" data-bind="foreach: questions">
+            <div class="questionItem" data-bind="text: question, css: { selectQuestionItem: selected }, click: selectQuestion"></div>
+        </div>
+        <div id="answersPane" class="bottomPane rightPane">
+            <div id="answerPane" data-bind="html: selectedAnswer" class="scrollable bottomPane rightPane">
+
+                <!-- div id="InterpertModel" data-bind="html: interpert" class="modelAnalysis">Some text</>
+                <div id="ModelAnswer" data-bind="html: analysis" class="modelAnalysis rAnalysis"></div>
+                <div id="AnalyzedModel" class="modelAnalysis rAnalysis"></div>
+                <div id="Anova" class="modelAnalysis rAnalysis"></div-->
+            </div>
+        </div>
+    </div>
+
+    <div class="blackOverlay" data-bind="visible: isSiteLoading"></div>
+    <div style="display:none;" data-bind="visible: isFileDialogOpen">
+        <div class="blackOverlay" data-bind="click: hideFileDialog"></div>
+        <div class="todoList" id="uploadPanel">
+            <section id="localUploadPanel">
+                <h2>File Upload</h2>
+                @* ReSharper disable Mvc.ActionNotResolved *@
+                @* ReSharper disable Mvc.ControllerNotResolved *@
+                @using (Html.BeginForm("FileUpload", "api", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
+                    <fieldset>
+                        @* ReSharper restore Mvc.ControllerNotResolved *@
+                        @* ReSharper restore Mvc.ActionNotResolved *@
+                        <legend>Log in Form</legend>
+                        <ol>
+                            <li>
+                                <input id="fileUploadChoose" 
+                                    data-bind="event: { change: fileChosen }" 
+                                    type="file"
+                                    accept=".xlsx,.csv" 
+                                    name="file"
+                                    title=".xlsx|.csv"
+                                    hidden />
+                                <input id="fileUploadName" data-bind="value: uploadFileName" type="text" disabled="disabled" style="width:180px" name="fileName" />
+                                <button data-bind="click: chooseFileToUpload">...</button>
+                            </li>
+                        </ol>
+                    </fieldset>
+                }
+                <div id="UploadButtonPanel">
+                    <button id="UploadUploadButton" data-bind="click: submitUploadFile, enable: uploadFileName">Upload</button>
+                    <button id="UploadCancelButton" data-bind="click: hideFileDialog">Cancel</button>
+                </div>
+            </section>
+            <section id="sampleDataPanel">
+                <h2>Sample Datasets</h2>
+                <div>
+                    <div id="sampleList" class="scrollable" data-bind="foreach: samples">
+                        <a href="" data-bind="text: name, click: submitUploadSample"></a>
+                        <div class="sampleDescription" data-bind="text: description"></div>
+                    </div>
+                    <!-- ko if: samples().length == 0-->
+                    <p>No sample datasets available yet.</p>
+                    <!-- /ko -->​
+                </div>
+            </section>
+            <br/>
+        </div>
+    </div>
+    <div id="variablePane" class="scrollable">
+        <div class="variableAreaTitle" id="firstVariableAreaTitle">Predicted Variable</div>
+        <div id="predictedVariableArea" data-bind="foreach: predictedVariable, css: { variableArea: true, droppedArea: predictedVariableHover }">
+            <div class="variableBox" data-bind="text: variableName, attr: { title: variableName }"></div>
+        </div>
+        <div class="variableAreaTitle">Fixed Effects</div>
+        <div class="variableArea" id="linearEffectsArea" data-bind="foreach: linearEffects, css: { variableArea: true, droppedArea: linearEffectsHover() && !hasInternalHover() }">
+            <div class="linearVariableGroup" data-bind="foreach: variableNames, attr: { id: 'linearVariableGroup-' + $index() }">
+                <div class="variableBox" data-bind="text: variableName, attr: { title: variableName }, style: { width: ((170 - (6 * $parent.variableNames.length) - (Math.max(0, $parent.variableNames.length - 1))) / $parent.variableNames.length) + 'px', float: 'left', marginLeft: $index() < 1 ? '0px' : '1px' }"></div>
+            </div>
+        </div>
+        <div class="variableAreaTitle" >Random Effects</div>
+        <div class="variableArea" id="randomEffectsArea" data-bind="foreach: randomEffects, css: { variableArea: true, droppedArea: randomEffectsHover() && !hasInternalHover() }">
+            <div class="variableBox" data-bind="text: variableName, attr: { title: variableName }"></div>
+            <div class="randomVariableGroup" data-bind="foreach: variableNames, attr: { id: 'randomVariableGroup-' + $index() }">
+                <div class="internalRandomVariable variableBox" data-bind="text: variableName, attr: { title: variableName }"></div>
+            </div>
+        </div>
+        <div class="variableAreaTitle" >Excluded Variables</div>
+        <div class="variableArea" id="excludedVariablesArea" data-bind="foreach: excludedVariables, css: { variableArea: true, droppedArea: excludedVariableHover }">
+            <div class="variableBox" data-bind="text: variableName, attr: { title: variableName }"></div>
+        </div>
+    </div>
+</div>
+
+    <div>
+    @section scripts {
+        @Scripts.Render("~/bundles/knockout")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/mixed")
+        @Scripts.Render("~/bundles/flot")
+        @Scripts.Render("~/bundles/datatables")
+    }
+    </div>

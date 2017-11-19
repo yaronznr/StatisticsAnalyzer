@@ -1,0 +1,22 @@
+ citHeader("To cite package `Influence.ME' in publications, please use:")
+     
+ citEntry(entry="Article",
+			textVersion = paste("Rense Nieuwenhuis, Manfred te Grotenhuis and Ben Pelzer (2012). ",
+            "Influence.ME: Tools for Detecting Influential Data in Mixed Effects Models. ",
+			"R Journal, 4(2): pp. 38-47.", sep=""),
+        title = "Influence.ME: Tools for Detecting Influential Data in Mixed Effects Models",
+		author = personList(as.person("Rense Nieuwenhuis"),
+            person(given="Manfred", family="Te Grotenhuis"),
+            as.person("Ben Pelzer")),
+        year = 2012,
+        journal = "R Journal",
+		volume = 4,
+		number = 2,
+		pages= "38-47")
+
+
+
+
+
+
+

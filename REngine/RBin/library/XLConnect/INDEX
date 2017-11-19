@@ -1,0 +1,165 @@
+$-methods               Executing workbook methods in
+                        object$method(...) form
+XLC                     XLConnect Constants
+XLConnect-deprecated    Deprecated functions in package 'XLConnect'
+XLConnect-package       Excel Connector for R
+[                       Workbook data extraction & replacement
+                        operators
+addImage-methods        Adding images to a worksheet
+appendNamedRegion-methods
+                        Appending data to a named region
+appendWorksheet-methods
+                        Appending data to worksheets
+aref                    Constructing Excel area references
+aref2idx                Converting Excel cell references to row and
+                        column based cell references
+cellstyle-class         Class "cellstyle"
+clearNamedRegion-methods
+                        Clearing named regions in a workbook
+clearRange-methods      Clearing cell ranges in a workbook
+clearRangeFromReference-methods
+                        Clearing cell ranges in a workbook
+clearSheet-methods      Clearing worksheets in a workbook
+cloneSheet-methods      Cloning/copying worksheets
+col2idx                 Converting Excel column names to indices
+createCellStyle-methods
+                        Creating custom named and anonymous cell styles
+createFreezePane-methods
+                        Creating a freeze pane on a worksheet
+createName-methods      Creating names in a workbook
+createSheet-methods     Creating worksheets in a workbook
+createSplitPane-methods
+                        Creating a split pane on a worksheet
+cref2idx                Converting Excel cell references to indices
+existsName-methods      Checking existence of names in a workbook
+existsSheet-methods     Checking for existence of worksheets in a
+                        workbook
+extractSheetName        Extracting the sheet name from a formula
+getActiveSheetIndex-methods
+                        Querying the active worksheet index
+getActiveSheetName-methods
+                        Querying the active worksheet name
+getBoundingBox-methods
+                        Querying the coordinates of a worksheet
+                        bounding box
+getCellFormula-methods
+                        Retrieving formula definitions from cells
+getCellStyle-methods    Retrieving named cell styles
+getCellStyleForType-methods
+                        Querying the cell style per data type for the
+                        DATATYPE style action
+getDefinedNames-methods
+                        Retrieving defined names in a workbook
+getForceFormulaRecalculation-methods
+                        Querying the coordinates of the range reference
+                        by an Excel name
+getLastColumn-methods   Querying the last (non-empty) column on a
+                        worksheet
+getLastRow-methods      Querying the last (non-empty) row on a
+                        worksheet
+getReferenceCoordinates-methods
+                        Querying the coordinates of the range reference
+                        by an Excel name
+getReferenceCoordinatesForName-methods
+                        Querying the coordinates of the range reference
+                        by an Excel name
+getReferenceCoordinatesForTable-methods
+                        Querying the coordinates of the range of an
+                        Excel table
+getReferenceFormula-methods
+                        Querying reference formulas of Excel names
+getSheetPos-methods     Querying worksheet position
+getSheets-methods       Querying available worksheets in a workbook
+getTables-methods       Querying available Excel tables in a workbook
+hideSheet-methods       Hiding worksheets in a workbook
+idx2aref                Converting row and column based area references
+                        to Excel area references
+idx2col                 Converting column indices to Excel column names
+idx2cref                Converting indices to Excel cell references
+isSheetHidden-methods   Checking if worksheets are hidden in a workbook
+isSheetVeryHidden-methods
+                        Checking if worksheets are very hidden in a
+                        workbook
+isSheetVisible-methods
+                        Checking if worksheets are visible in a
+                        workbook
+loadWorkbook            Loading Microsoft Excel workbooks
+mergeCells-methods      Merging cells
+mirai                   Mirai Solutions GmbH
+onErrorCell-methods     Behavior when error cells are detected
+print-methods           Print a workbook's filename
+readNamedRegion         Reading named regions from a workbook
+readNamedRegionFromFile
+                        Reading named regions from an Excel file
+                        (wrapper function)
+readTable               Reading Excel tables from a workbook
+readWorksheet-methods   Reading data from worksheets
+readWorksheetFromFile   Reading data from worksheets in an Excel file
+                        (wrapper function)
+removeName-methods      Removing names from workbooks
+removePane-methods      Removing panes from worksheet
+removeSheet-methods     Removing worksheets from workbooks
+renameSheet-methods     Renaming worksheets from workbooks
+saveWorkbook-methods    Saving Microsoft Excel workbooks
+setActiveSheet-methods
+                        Setting the active worksheet in a workbook
+setAutoFilter-methods   Setting auto-filters on worksheets
+setBorder-methods       Specifying borders for cell styles
+setCellFormula-methods
+                        Setting cell formulas
+setCellStyle-methods    Setting cell styles
+setCellStyleForType-methods
+                        Setting the cell style per data type for the
+                        DATATYPE style action
+setColumnWidth-methods
+                        Setting the width of a column in a worksheet
+setDataFormat-methods   Specifying custom data formats for cell styles
+setDataFormatForType-methods
+                        Setting the data format for the
+                        DATA_FORMAT_ONLY style action
+setFillBackgroundColor-methods
+                        Specifying the fill background color for cell
+                        styles
+setFillForegroundColor-methods
+                        Specifying the fill foreground color for cell
+                        styles
+setFillPattern-methods
+                        Specifying the fill pattern for cell styles
+setForceFormulaRecalculation-methods
+                        Forcing Excel to recalculate formula values
+                        when opening a workbook
+setMissingValue-methods
+                        Setting missing value identifiers
+setRowHeight-methods    Setting the height of a row in a worksheet
+setSheetColor-methods   Setting colors on worksheet tabs
+setSheetPos-methods     Setting worksheet position
+setStyleAction-methods
+                        Controlling application of cell styles when
+                        writing data to Excel
+setStyleNamePrefix-methods
+                        Setting the style name prefix for the "name
+                        prefix" style action
+setWrapText-methods     Specifying text wrapping behaviour
+show-methods            Display a workbook object
+summary-methods         Summarizing workbook objects
+swissfranc              Historical Exchange Rates: CHF vs EUR, USD and
+                        GBP
+unhideSheet-methods     Unhiding worksheets in a workbook
+unmergeCells-methods    Unmerging cells
+with.workbook           Evaluate an R expression in a workbook
+                        environment
+workbook-class          Class "workbook"
+writeNamedRegion-methods
+                        Writing named regions to a workbook
+writeNamedRegionToFile
+                        Writing named regions to an Excel file (wrapper
+                        function)
+writeWorksheet-methods
+                        Writing data to worksheets
+writeWorksheetToFile    Writing data to worksheets in an Excel file
+                        (wrapper function)
+xlcDump                 Dumping data sets to Excel files
+xlcEdit                 Editing data sets in an Excel file editor
+xlcFreeMemory           Freeing Java Virtual Machine memory
+xlcMemoryReport         Reporting free Java Virtual Machine memory
+xlcRestore              Restoring objects from Excel files

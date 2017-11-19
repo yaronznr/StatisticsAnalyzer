@@ -1,0 +1,71 @@
+﻿@functions{
+    public string GetFileName()
+    {
+        string blobName;
+        try
+        {
+            blobName = ServicesLib.ServiceContainer.StorageService().GetCurrentExcelName(User.Identity.Name);
+        }
+        catch
+        {
+            blobName = "$$$.$$$";
+        }
+        blobName = (blobName == "$$$.$$$" || string.IsNullOrEmpty(blobName)) ? null : blobName; 
+        return blobName ?? "No File Selected";
+    }
+
+    public string GetUserSettingsId()
+    {
+        var routeData = ViewContext.RequestContext.RouteData;
+        if (routeData.Values["action"].ToString() == "DownloadPage" && routeData.Values["controller"].ToString() == "Home")
+        {
+            return "userSettingsNoVarPane";
+        }
+        return "userSettings";
+    }
+}
+
+@if (Request.IsAuthenticated) {
+    <script>
+        window.pageLoadFileName = '@GetFileName()';
+    </script>
+        var routeData = ViewContext.RequestContext.RouteData;
+        <div id="@GetUserSettingsId()">
+            @if (!User.Identity.Name.StartsWith("Temp"))
+            {
+                    <text>
+            
+                        Hello, @Html.ActionLink(
+                                   User.Identity.Name,
+                                   "Manage",
+                                   "Account",
+                                   routeValues: new { area = "" },
+                                   htmlAttributes: new { title = "Manage" })
+                        <form><a data-bind="click: showFileDialog, text: currentFileName" href="javascript:document.getElementById('logoutForm').submit()"></a></form>
+                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" })) {
+                            @Html.AntiForgeryToken()
+                            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                        }
+                    </text>
+            }
+            else if (routeData.Values["action"].ToString() != "DownloadPage" || routeData.Values["controller"].ToString() != "Home")
+            {
+                <text>
+                    Download desktop app @Html.ActionLink(
+                               "here",
+                               "DownloadPage",
+                               "Home")
+                    <form><a data-bind="click: showFileDialog, text: currentFileName" href="javascript:document.getElementById('logoutForm').submit()"></a></form>  
+                </text>
+            }
+            else
+            {
+                <text>
+                    @Html.ActionLink(
+                               "Back to demo",
+                               "Index",
+                               "Home")
+                </text>  
+            }
+        </div>
+}

@@ -1,0 +1,32 @@
+# Export all names
+exportPattern(".")
+
+# Import all packages listed as Imports or Depends
+importFrom(scatterplot3d, scatterplot3d)
+importFrom(mvtnorm, dmvnorm, rmvnorm, qmvt) 
+importFrom(lattice, wireframe)
+importFrom(deSolve, rk4)
+importFrom(plotrix, draw.circle, staxlab, thigmophobe)
+importFrom(multcompView, multcompLetters)
+import(
+  tcltk,
+  tkrplot,
+  pixmap
+)
+
+# Method registration -print
+S3method(print, addtest)
+S3method(print, bci)
+S3method(print, BDM)
+S3method(print, blm)
+S3method(print, bootstrap)
+S3method(print, ci)
+S3method(print, ciboot)
+S3method(print, kback)
+S3method(print, mltest)
+S3method(print, oneSamp)
+S3method(print, pairw)
+S3method(print, prp.index)
+
+# Method registration -plot
+S3method(plot, pairw)

@@ -1,0 +1,21 @@
+importFrom("Matrix",
+           diag)                        # need the S4 generic in se.fixef
+importFrom("stats",
+           dfbetas,
+           cooks.distance)
+importFrom("lattice", 
+			dotplot, panel.dotplot)
+importFrom("lme4",
+			lmer)		
+export(cooks.distance.estex, 
+       dfbetas.estex,
+       pchange,
+       sigtest,
+       influence,
+       exclude.influence,
+	   grouping.levels,
+	   se.fixef,
+	   plot.estex)
+S3method(dfbetas, estex)
+S3method(cooks.distance, estex)
+S3method(plot, estex)

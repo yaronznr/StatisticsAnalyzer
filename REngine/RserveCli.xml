@@ -1,0 +1,2915 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RserveCli</name>
+    </assembly>
+    <members>
+        <member name="T:RserveCli.SexpQap1Raw">
+            <summary>
+            A container for Sexps that we don't know how to interpret. This way you can still pass such a Sexp back to Rserve, even though its meaning
+            remains opaque.
+            </summary>
+        </member>
+        <member name="T:RserveCli.Sexp">
+            <summary>
+            A local representation for an S-Expression (a.k.a., Sexp, Rexp, R-expression).
+            </summary>
+        </member>
+        <member name="F:RserveCli.Sexp.attributes">
+            <summary>
+            The Sexp attributes, if any
+            </summary>
+        </member>
+        <member name="M:RserveCli.Sexp.op_Explicit(RserveCli.Sexp)~System.Boolean">
+            <summary>
+            Syntactic sugar for explicit conversion to bool
+            </summary>
+            <param name="s">The Sexp</param>
+            <returns>The converted value</returns>
+        </member>
+        <member name="M:RserveCli.Sexp.op_Explicit(RserveCli.Sexp)~System.Double">
+            <summary>
+            Syntactic sugar for explicit conversion to double
+            </summary>
+            <param name="s">The Sexp</param>
+            <returns>The converted value</returns>
+        </member>
+        <member name="M:RserveCli.Sexp.op_Explicit(RserveCli.Sexp)~System.Int32">
+            <summary>
+            Syntactic sugar for explicit conversion to int
+            </summary>
+            <param name="s">The Sexp</param>
+            <returns>The converted value</returns>
+        </member>
+        <member name="M:RserveCli.Sexp.op_Explicit(RserveCli.Sexp)~RserveCli.SexpBoolValue">
+            <summary>
+            Syntactic sugar for explicit conversion to SexpBoolValue
+            </summary>
+            <param name="s">The Sexp</param>
+            <returns>The converted value</returns>
+        </member>
+        <member name="M:RserveCli.Sexp.op_Explicit(RserveCli.Sexp)~System.String">
+            <summary>
+            Syntactic sugar for explicit conversion to string
+            </summary>
+            <param name="s">The Sexp</param>
+            <returns>The converted value</returns>
+        </member>
+        <member name="M:RserveCli.Sexp.op_Explicit(RserveCli.Sexp)~System.String[]">
+            <summary>
+            Syntactic sugar for explicit conversion to string[]
+            </summary>
+            <param name="s">The Sexp</param>
+            <returns>The converted value</returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Make(System.Object)">
+            <summary>
+            Makes a Sexp from an object.
+            </summary>
+            <param name="x">
+            The object to convert into an Sexp.
+            </param>
+            <returns>
+            The Sexp made.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Make(System.Boolean)">
+            <summary>
+            Makes a Sexp from an object.
+            </summary>
+            <param name="x">
+            The object to convert into an Sexp.
+            </param>
+            <returns>
+            The Sexp made.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Make(System.Int32)">
+            <summary>
+            Makes a Sexp from an object.
+            </summary>
+            <param name="x">
+            The object to convert into an Sexp.
+            </param>
+            <returns>
+            The Sexp made.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Make(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Makes a Sexp from an object.
+            </summary>
+            <param name="xs">
+            The objects to convert into an Sexp.
+            </param>
+            <returns>
+            The Sexp made.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Make(System.Double)">
+            <summary>
+            Makes a Sexp from an object.
+            </summary>
+            <param name="x">
+            The object to convert into an Sexp.
+            </param>
+            <returns>
+            The Sexp made.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Make(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Makes a Sexp from an object.
+            </summary>
+            <param name="xs">
+            The objects to convert into an Sexp.
+            </param>
+            <returns>
+            The Sexp made.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Make(System.Double[0:,0:])">
+            <summary>
+            Makes a mathrix Sexp from a native matrix.
+            </summary>
+            <param name="xs">
+            The native matrix.
+            </param>
+            <returns>
+            The Sexp matrix.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Make(System.Int32[0:,0:])">
+            <summary>
+            Makes a mathrix Sexp from a native matrix.
+            </summary>
+            <param name="xs">
+            The native matrix.
+            </param>
+            <returns>
+            The Sexp matrix.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Make(System.String)">
+            <summary>
+            Makes a Sexp from an object.
+            </summary>
+            <param name="x">
+            The object to convert into an Sexp.
+            </param>
+            <returns>
+            The Sexp made.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Make(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Makes a Sexp from an object.
+            </summary>
+            <param name="xs">
+            The objects to convert into an Sexp.
+            </param>
+            <returns>
+            The Sexp made.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Make(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Makes a Sexp from a Dictionary.
+            </summary>
+            <param name="xs">
+            The objects to convert into an Sexp.
+            </param>
+            <returns>
+            The Sexp made.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.MakeDataFrame(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Makes a data frame.
+            </summary>
+            <param name="columns">
+            The columns.
+            </param>
+            <param name="rowNames">
+            The row names.
+            </param>
+            <returns>
+            Sexp of data frame
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">
+            The <see cref="T:System.Object"/> to compare with this instance.
+            </param>
+            <returns>
+            <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.GetLength(System.Int32)">
+            <summary>
+            Gets the length of an array-like object with respect to a given dimension.
+            </summary>
+            <param name="dim">
+            The zero-based index of the dimension.
+            </param>
+            <returns>
+            Length of the object in the dimension requested.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.ToNative">
+            <summary>
+            Converts the Sexp into the most appropriate native representation. Use with caution--this is more a rapid prototyping than
+            a production feature.
+            </summary>
+            <returns>
+            A CLI native representation of the Sexp
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Add(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.Sexp.Contains(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.CopyTo(System.Collections.Generic.KeyValuePair{System.String,System.Object}[],System.Int32)">
+            <summary>
+            Copies to.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <param name="arrayIndex">
+            Index of the array.
+            </param>
+        </member>
+        <member name="M:RserveCli.Sexp.Remove(System.Collections.Generic.KeyValuePair{System.String,System.Object})">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.Sexp.Add(System.Collections.Generic.KeyValuePair{System.String,RserveCli.Sexp})">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.Sexp.Contains(System.Collections.Generic.KeyValuePair{System.String,RserveCli.Sexp})">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.CopyTo(System.Collections.Generic.KeyValuePair{System.String,RserveCli.Sexp}[],System.Int32)">
+            <summary>
+            Copies to.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <param name="arrayIndex">
+            Index of the array.
+            </param>
+        </member>
+        <member name="M:RserveCli.Sexp.Remove(System.Collections.Generic.KeyValuePair{System.String,RserveCli.Sexp})">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.Sexp.Add(System.Object)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.Sexp.Contains(System.Object)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.CopyTo(System.Object[],System.Int32)">
+            <summary>
+            Copies to.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <param name="arrayIndex">
+            Index of the array.
+            </param>
+        </member>
+        <member name="M:RserveCli.Sexp.Remove(System.Object)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.Sexp.Add(RserveCli.Sexp)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.Sexp.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.Sexp.Contains(RserveCli.Sexp)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.CopyTo(RserveCli.Sexp[],System.Int32)">
+            <summary>
+            Copies to.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <param name="arrayIndex">
+            Index of the array.
+            </param>
+        </member>
+        <member name="M:RserveCli.Sexp.Remove(RserveCli.Sexp)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.Sexp.Add(System.String,System.Object)">
+            <summary>
+            Adds an element with the provided key and value to the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <param name="key">
+            The object to use as the key of the element to add.
+            </param>
+            <param name="value">
+            The object to use as the value of the element to add.
+            </param>
+        </member>
+        <member name="M:RserveCli.Sexp.TryGetValue(System.String,System.Object@)">
+            <summary>
+            Gets the value associated with the specified key.
+            </summary>
+            <param name="key">
+            The key whose value to get.
+            </param>
+            <param name="value">
+            When this method returns, the value associated with the specified key, if the key is found; otherwise, the default value for the type of the <paramref name="value"/> parameter. This parameter is passed uninitialized.
+            </param>
+            <returns>
+            true if the object that implements <see cref="T:System.Collections.Generic.IDictionary`2"/> contains an element with the specified key; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Add(System.String,RserveCli.Sexp)">
+            <summary>
+            Adds an element with the provided key and value to the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <param name="key">
+            The object to use as the key of the element to add.
+            </param>
+            <param name="value">
+            The object to use as the value of the element to add.
+            </param>
+        </member>
+        <member name="M:RserveCli.Sexp.ContainsKey(System.String)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.IDictionary`2"/> contains an element with the specified key.
+            </summary>
+            <param name="key">
+            The key to locate in the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </param>
+            <returns>
+            true if the <see cref="T:System.Collections.Generic.IDictionary`2"/> contains an element with the key; otherwise, false.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="key"/> is null.
+            </exception>
+        </member>
+        <member name="M:RserveCli.Sexp.Remove(System.String)">
+            <summary>
+            Removes the element with the specified key from the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <param name="key">
+            The key of the element to remove.
+            </param>
+            <returns>
+            true if the element is successfully removed; otherwise, false.  This method also returns false if <paramref name="key"/> was not found in the original <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.TryGetValue(System.String,RserveCli.Sexp@)">
+            <summary>
+            Gets the value associated with the specified key.
+            </summary>
+            <param name="key">
+            The key whose value to get.
+            </param>
+            <param name="value">
+            When this method returns, the value associated with the specified key, if the key is found; otherwise, the default value for the type of the <paramref name="value"/> parameter. This parameter is passed uninitialized.
+            </param>
+            <returns>
+            true if the object that implements <see cref="T:System.Collections.Generic.IDictionary`2"/> contains an element with the specified key; otherwise, false.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="key"/> is null.
+            </exception>
+        </member>
+        <member name="M:RserveCli.Sexp.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{System#String@System#Object}}#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{System#String@RserveCli#Sexp}}#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.System#Collections#Generic#IEnumerable{System#Object}#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.IndexOf(System.Object)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+            <returns>
+            The index of <paramref name="item"/> if found in the list; otherwise, -1.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Insert(System.Int32,System.Object)">
+            <summary>
+            Inserts an item to the <see cref="T:System.Collections.Generic.IList`1"/> at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index at which <paramref name="item"/> should be inserted.
+            </param>
+            <param name="item">
+            The object to insert into the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.Sexp.IndexOf(RserveCli.Sexp)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+            <returns>
+            The index of <paramref name="item"/> if found in the list; otherwise, -1.
+            </returns>
+        </member>
+        <member name="M:RserveCli.Sexp.Insert(System.Int32,RserveCli.Sexp)">
+            <summary>
+            Inserts an item to the <see cref="T:System.Collections.Generic.IList`1"/> at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index at which <paramref name="item"/> should be inserted.
+            </param>
+            <param name="item">
+            The object to insert into the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.Sexp.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Collections.Generic.IList`1"/> item at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index of the item to remove.
+            </param>
+        </member>
+        <member name="P:RserveCli.Sexp.AsBool">
+            <summary>
+            Gets a value indicating whether [as bool].
+            </summary>
+            <value>
+            <c>true</c> if [as bool]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.Sexp.AsDictionary">
+            <summary>
+            Gets as dictionary of objects.
+            </summary>
+        </member>
+        <member name="P:RserveCli.Sexp.AsDouble">
+            <summary>
+            Gets as double.
+            </summary>
+            <value>
+            As double.
+            </value>
+        </member>
+        <member name="P:RserveCli.Sexp.AsInt">
+            <summary>
+            Gets as int.
+            </summary>
+            <value>
+            The value as an integer.
+            </value>
+        </member>
+        <member name="P:RserveCli.Sexp.AsList">
+            <summary>
+            Gets as list of objects.
+            </summary>
+        </member>
+        <member name="P:RserveCli.Sexp.AsSexpBool">
+            <summary>
+            Gets as sexp bool.
+            </summary>
+            <value>
+            As sexp bool.
+            </value>
+        </member>
+        <member name="P:RserveCli.Sexp.AsSexpDictionary">
+            <summary>
+            Gets as dictionary of Sexps.
+            </summary>
+        </member>
+        <member name="P:RserveCli.Sexp.AsString">
+            <summary>
+            Gets as string.
+            </summary>
+            <value>
+            As string.
+            </value>
+        </member>
+        <member name="P:RserveCli.Sexp.AsStrings">
+            <summary>
+            Gets as Strings.
+            </summary>
+        </member>
+        <member name="P:RserveCli.Sexp.Attributes">
+            <summary>
+            Gets the attributes.
+            </summary>
+        </member>
+        <member name="P:RserveCli.Sexp.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <returns>
+            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.Sexp.IsNa">
+            <summary>
+            Gets a value indicating whether this instance is NA.
+            </summary>
+            <value>
+            <c>true</c> if this instance is NA; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.Sexp.IsNull">
+            <summary>
+            Gets a value indicating whether this instance is null.
+            </summary>
+            <value>
+            <c>true</c> if this instance is null; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.Sexp.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </summary>
+            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:RserveCli.Sexp.Keys">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.Generic.ICollection`1"/> containing the keys of the object that implements <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.Sexp.Names">
+            <summary>
+            Gets the names.
+            </summary>
+        </member>
+        <member name="P:RserveCli.Sexp.Rank">
+            <summary>
+            Gets the rank. E.g., a plain list has a rank of 1 and a matrix has a rank of 2.
+            </summary>
+        </member>
+        <member name="P:RserveCli.Sexp.Values">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.Generic.ICollection`1"/> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.Sexp.System#Collections#Generic#IDictionary{System#String@System#Object}#Values">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.Generic.ICollection`1"/> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.Sexp.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="row">The zero-based row index.</param>
+            <param name="col">The zero-based column index.</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+        <member name="P:RserveCli.Sexp.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index.</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+        <member name="P:RserveCli.Sexp.Item(System.String)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="key">The name of the value.</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+        <member name="P:RserveCli.Sexp.System#Collections#Generic#IList{System#Object}#Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element.</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+        <member name="P:RserveCli.Sexp.System#Collections#Generic#IDictionary{System#String@System#Object}#Item(System.String)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="key">The name of the element.</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpQap1Raw.#ctor(System.Byte,System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpQap1Raw"/> class.
+            </summary>
+            <param name="type">
+            The type of the Sexp as represented by Rserve.
+            </param>
+            <param name="data">
+            The data of the Sexp. Its meaning is opaque.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpQap1Raw.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpQap1Raw.Data">
+            <summary>
+            Gets the data of the Sexp as sent by Rserve
+            </summary>
+        </member>
+        <member name="P:RserveCli.SexpQap1Raw.Type">
+            <summary>
+            Gets the XT_... type of the Sexp
+            </summary>
+        </member>
+        <member name="T:RserveCli.SexpArrayString">
+            <summary>
+            An array of strings
+            </summary>
+        </member>
+        <member name="T:RserveCli.SexpGenericList">
+            <summary>
+            Functionality for list-like Sexps.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpGenericList.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">
+            The <see cref="T:System.Object"/> to compare with this instance.
+            </param>
+            <returns>
+            <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpGenericList.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpGenericList.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpGenericList.AssertOne">
+            <summary>
+            Asserts that the list has exactly one element.
+            </summary>
+            <returns>
+            The single sexp contained in the list
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpGenericList.AsBool">
+            <summary>
+            Gets or sets a value indicating whether [as bool].
+            </summary>
+            <value>
+              <c>true</c> if [as bool]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpGenericList.AsDouble">
+            <summary>
+            Gets or sets as double.
+            </summary>
+            <value>
+            As double.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpGenericList.AsInt">
+            <summary>
+            Gets or sets as int.
+            </summary>
+            <value>
+            The value as an integer.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpGenericList.AsSexpBool">
+            <summary>
+            Gets or sets as sexp bool.
+            </summary>
+            <value>
+            As sexp bool.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpGenericList.AsString">
+            <summary>
+            Gets or sets as string.
+            </summary>
+            <value>
+            As string.
+            </value>
+        </member>
+        <member name="M:RserveCli.SexpArrayString.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpArrayString"/> class.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpArrayString.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpArrayString"/> class.
+            </summary>
+            <param name="theValue">
+            The value.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayString.Add(RserveCli.Sexp)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayString.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpArrayString.Contains(RserveCli.Sexp)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpArrayString.CopyTo(RserveCli.Sexp[],System.Int32)">
+            <summary>
+            Copies to.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <param name="arrayIndex">
+            Index of the array.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayString.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpArrayString.IndexOf(RserveCli.Sexp)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+            <returns>
+            The index of <paramref name="item"/> if found in the list; otherwise, -1.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpArrayString.Insert(System.Int32,RserveCli.Sexp)">
+            <summary>
+            Inserts an item to the <see cref="T:System.Collections.Generic.IList`1"/> at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index at which <paramref name="item"/> should be inserted.
+            </param>
+            <param name="item">
+            The object to insert into the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayString.Remove(RserveCli.Sexp)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpArrayString.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Collections.Generic.IList`1"/> item at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index of the item to remove.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayString.ToNative">
+            <summary>
+            Converts the Sexp into the most appropriate native representation. Use with caution--this is more a rapid prototyping than
+            a production feature.
+            </summary>
+            <returns>
+            A CLI native representation of the Sexp
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpArrayString.AsString">
+            <summary>
+            Gets or sets as string.
+            </summary>
+            <value>
+            As string.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpArrayString.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <returns>
+            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpArrayString.IsNa">
+            <summary>
+            Gets a value indicating whether this instance is NA.
+            </summary>
+            <value>
+              <c>true</c> if this instance is NA; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpArrayString.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </summary>
+            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpArrayString.Value">
+            <summary>
+            Gets the strings stored in the list
+            </summary>
+        </member>
+        <member name="P:RserveCli.SexpArrayString.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to be retrieved</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+        <member name="T:RserveCli.SexpArrayDouble">
+            <summary>
+            An array of double-precision floating-point values
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpArrayDouble.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpArrayDouble"/> class.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpArrayDouble.#ctor(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpArrayDouble"/> class.
+            </summary>
+            <param name="theValue">
+            The value.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayDouble.Add(RserveCli.Sexp)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayDouble.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpArrayDouble.Contains(RserveCli.Sexp)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpArrayDouble.CopyTo(RserveCli.Sexp[],System.Int32)">
+            <summary>
+            Copies to.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <param name="arrayIndex">
+            Index of the array.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayDouble.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpArrayDouble.IndexOf(RserveCli.Sexp)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+            <returns>
+            The index of <paramref name="item"/> if found in the list; otherwise, -1.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpArrayDouble.Insert(System.Int32,RserveCli.Sexp)">
+            <summary>
+            Inserts an item to the <see cref="T:System.Collections.Generic.IList`1"/> at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index at which <paramref name="item"/> should be inserted.
+            </param>
+            <param name="item">
+            The object to insert into the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayDouble.Remove(RserveCli.Sexp)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpArrayDouble.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Collections.Generic.IList`1"/> item at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index of the item to remove.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayDouble.ToNative">
+            <summary>
+            Converts the Sexp into the most appropriate native representation. Use with caution--this is more a rapid prototyping than
+            a production feature.
+            </summary>
+            <returns>
+            A CLI native representation of the Sexp
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpArrayDouble.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <returns>
+            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpArrayDouble.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </summary>
+            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpArrayDouble.Value">
+            <summary>
+            Gets the doubles stored in the list
+            </summary>
+        </member>
+        <member name="P:RserveCli.SexpArrayDouble.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+        <member name="T:RserveCli.SexpArrayBool">
+            <summary>
+            An array of (trivalue, i.e., including NA) booleans.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpArrayBool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpArrayBool"/> class.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpArrayBool.#ctor(System.Collections.Generic.IEnumerable{RserveCli.SexpBoolValue})">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpArrayBool"/> class.
+            </summary>
+            <param name="theValue">
+            The value.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayBool.Add(RserveCli.Sexp)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayBool.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpArrayBool.CopyTo(RserveCli.Sexp[],System.Int32)">
+            <summary>
+            Copies to.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <param name="arrayIndex">
+            Index of the array.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayBool.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpArrayBool.IndexOf(RserveCli.Sexp)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+            <returns>
+            The index of <paramref name="item"/> if found in the list; otherwise, -1.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpArrayBool.Insert(System.Int32,RserveCli.Sexp)">
+            <summary>
+            Inserts an item to the <see cref="T:System.Collections.Generic.IList`1"/> at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index at which <paramref name="item"/> should be inserted.
+            </param>
+            <param name="item">
+            The object to insert into the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayBool.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Collections.Generic.IList`1"/> item at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index of the item to remove.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayBool.ToNative">
+            <summary>
+            Converts the Sexp into the most appropriate native representation. Use with caution--this is more a rapid prototyping than
+            a production feature.
+            </summary>
+            <returns>
+            A CLI native representation of the Sexp
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpArrayBool.AsBool">
+            <summary>
+            Gets or sets a value indicating whether [as bool].
+            </summary>
+            <value>
+              <c>true</c> if [as bool]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpArrayBool.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <returns>
+            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpArrayBool.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </summary>
+            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpArrayBool.Value">
+            <summary>
+            Gets the values stored in the list
+            </summary>
+        </member>
+        <member name="P:RserveCli.SexpArrayBool.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The index of the element.</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+        <member name="T:RserveCli.SexpArrayInt">
+            <summary>
+            An array of integers.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpArrayInt.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpArrayInt"/> class.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpArrayInt.#ctor(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpArrayInt"/> class.
+            </summary>
+            <param name="theValue">
+            The value.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayInt.Add(RserveCli.Sexp)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayInt.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpArrayInt.Contains(RserveCli.Sexp)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpArrayInt.CopyTo(RserveCli.Sexp[],System.Int32)">
+            <summary>
+            Copies to.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <param name="arrayIndex">
+            Index of the array.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayInt.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpArrayInt.IndexOf(RserveCli.Sexp)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+            <returns>
+            The index of <paramref name="item"/> if found in the list; otherwise, -1.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpArrayInt.Insert(System.Int32,RserveCli.Sexp)">
+            <summary>
+            Inserts an item to the <see cref="T:System.Collections.Generic.IList`1"/> at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index at which <paramref name="item"/> should be inserted.
+            </param>
+            <param name="item">
+            The object to insert into the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayInt.Remove(RserveCli.Sexp)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpArrayInt.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Collections.Generic.IList`1"/> item at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index of the item to remove.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpArrayInt.ToNative">
+            <summary>
+            Converts the Sexp into the most appropriate native representation. Use with caution--this is more a rapid prototyping than
+            a production feature.
+            </summary>
+            <returns>
+            A CLI native representation of the Sexp
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpArrayInt.AsInt">
+            <summary>
+            Gets or sets as int.
+            </summary>
+            <value>
+            The value as an integer.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpArrayInt.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <returns>
+            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpArrayInt.IsNa">
+            <summary>
+            Gets a value indicating whether this instance is NA.
+            </summary>
+            <value>
+              <c>true</c> if this instance is NA; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpArrayInt.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </summary>
+            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpArrayInt.Value">
+            <summary>
+            Gets the integers stored in the list
+            </summary>
+        </member>
+        <member name="P:RserveCli.SexpArrayInt.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element.</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+        <member name="T:RserveCli.SexpTaggedList">
+            <summary>
+            A tagged list.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpTaggedList"/> class.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.Add(RserveCli.Sexp)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.Add(System.String,RserveCli.Sexp)">
+            <summary>
+            Adds an element with the provided key and value to the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <param name="key">
+            The object to use as the key of the element to add.
+            </param>
+            <param name="value">
+            The object to use as the value of the element to add.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.Contains(RserveCli.Sexp)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.Contains(System.Collections.Generic.KeyValuePair{System.String,RserveCli.Sexp})">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.ContainsKey(System.String)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.IDictionary`2"/> contains an element with the specified key.
+            </summary>
+            <param name="key">
+            The key to locate in the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </param>
+            <returns>
+            true if the <see cref="T:System.Collections.Generic.IDictionary`2"/> contains an element with the key; otherwise, false.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="key"/> is null.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.CopyTo(RserveCli.Sexp[],System.Int32)">
+            <summary>
+            Copies to.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <param name="arrayIndex">
+            Index of the array.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.CopyTo(System.Collections.Generic.KeyValuePair{System.String,RserveCli.Sexp}[],System.Int32)">
+            <summary>
+            Copies to.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <param name="arrayIndex">
+            Index of the array.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.IndexOf(RserveCli.Sexp)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+            <returns>
+            The index of <paramref name="item"/> if found in the list; otherwise, -1.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.Remove(RserveCli.Sexp)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.Remove(System.String)">
+            <summary>
+            Removes the element with the specified key from the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <param name="key">
+            The key of the element to remove.
+            </param>
+            <returns>
+            true if the element is successfully removed; otherwise, false.  This method also returns false if <paramref name="key"/> was not found in the original <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.Remove(System.Collections.Generic.KeyValuePair{System.String,RserveCli.Sexp})">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Collections.Generic.IList`1"/> item at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index of the item to remove.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.TryGetValue(System.String,RserveCli.Sexp@)">
+            <summary>
+            Gets the value associated with the specified key.
+            </summary>
+            <param name="key">
+            The key whose value to get.
+            </param>
+            <param name="value">
+            When this method returns, the value associated with the specified key, if the key is found; otherwise, the default value for the type of the <paramref name="value"/> parameter. This parameter is passed uninitialized.
+            </param>
+            <returns>
+            true if the object that implements <see cref="T:System.Collections.Generic.IDictionary`2"/> contains an element with the specified key; otherwise, false.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="key"/> is null.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpTaggedList.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{System#String@RserveCli#Sexp}}#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpTaggedList.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <returns>
+            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpTaggedList.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </summary>
+            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpTaggedList.Keys">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.Generic.ICollection`1"/> containing the keys of the object that implements <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpTaggedList.Values">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.Generic.ICollection`1"/> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpTaggedList.Value">
+            <summary>
+            Gets the values stored in the tagged list
+            </summary>
+        </member>
+        <member name="P:RserveCli.SexpTaggedList.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to be retrieved</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpTaggedList.Item(System.String)">
+            <summary>
+            Gets or sets the element with a specific name
+            </summary>
+            <param name="key">The name of the element to be retrieved</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+        <member name="T:RserveCli.SexpList">
+            <summary>
+            A List that can contain Sexps of various types. This is the basis for data frames, too.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpList"/> class.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpList.Add(RserveCli.Sexp)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpList.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpList.Contains(RserveCli.Sexp)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpList.CopyTo(RserveCli.Sexp[],System.Int32)">
+            <summary>
+            Copies to.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <param name="arrayIndex">
+            Index of the array.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpList.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpList.IndexOf(RserveCli.Sexp)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+            <returns>
+            The index of <paramref name="item"/> if found in the list; otherwise, -1.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpList.Insert(System.Int32,RserveCli.Sexp)">
+            <summary>
+            Inserts an item to the <see cref="T:System.Collections.Generic.IList`1"/> at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index at which <paramref name="item"/> should be inserted.
+            </param>
+            <param name="item">
+            The object to insert into the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpList.Remove(RserveCli.Sexp)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">
+            The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpList.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Collections.Generic.IList`1"/> item at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index of the item to remove.
+            </param>
+        </member>
+        <member name="P:RserveCli.SexpList.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <returns>
+            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpList.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </summary>
+            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpList.Value">
+            <summary>
+            Gets Value.
+            </summary>
+        </member>
+        <member name="P:RserveCli.SexpList.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to be retrieved</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+        <member name="T:RserveCli.SexpSymname">
+            <summary>
+            A Sexp for Symnames. Same as a string, but can't be NA.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpSymname.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpSymname"/> class.
+            </summary>
+            <param name="theValue">
+            The value.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpSymname.ToNative">
+            <summary>
+            Converts the Sexp into the most appropriate native representation. Use with caution--this is more a rapid prototyping than
+            a production feature.
+            </summary>
+            <returns>
+            A CLI native representation of the Sexp
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpSymname.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpSymname.AsString">
+            <summary>
+            Gets or sets as string.
+            </summary>
+            <value>
+            As string.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpSymname.Value">
+            <summary>
+            Gets the value of the symname
+            </summary>
+        </member>
+        <member name="T:RserveCli.SexpString">
+            <summary>
+            A convenience representation for R string values. Note that Rserve never uses this type,
+            but puts even a single number into a SexpArrayString.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpString.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpString"/> class.
+            </summary>
+            <param name="theValue">
+            The value.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpString.CheckNa(System.String)">
+            <summary>
+            Checks whether a value is NA.
+            </summary>
+            <param name="x">
+            The value to be checked.
+            </param>
+            <returns>
+            True if the value is NA, false otherwise.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpString.CheckNa(RserveCli.SexpString)">
+            <summary>
+            Checks whether a value is NA.
+            </summary>
+            <param name="x">
+            The value to be checked.
+            </param>
+            <returns>
+            True if the value is NA, false otherwise.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpString.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">
+            The <see cref="T:System.Object"/> to compare with this instance.
+            </param>
+            <returns>
+            <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpString.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpString.ToNative">
+            <summary>
+            Converts the Sexp into the most appropriate native representation. Use with caution--this is more a rapid prototyping than
+            a production feature.
+            </summary>
+            <returns>
+            A CLI native representation of the Sexp
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpString.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpString.Na">
+            <summary>
+            Gets the NA representation of strings.
+            </summary>
+        </member>
+        <member name="P:RserveCli.SexpString.AsString">
+            <summary>
+            Gets or sets as string.
+            </summary>
+            <value>
+            As string.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpString.IsNa">
+            <summary>
+            Gets a value indicating whether this instance is NA.
+            </summary>
+            <value>
+              <c>true</c> if this instance is NA; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpString.Value">
+            <summary>
+            Gets the value of the Sexp
+            </summary>
+        </member>
+        <member name="T:RserveCli.SexpDouble">
+            <summary>
+            A convenience representation for R double values. Note that Rserve never uses this type,
+            but puts even a single number into a SexpArrayDouble.
+            </summary>
+        </member>
+        <member name="F:RserveCli.SexpDouble.Nabytes">
+            <summary>
+            This is how NA gets represented. This is NaN, but not every NaN is like this. The bit pattern might vary between platforms.
+            </summary>
+        </member>
+        <member name="F:RserveCli.SexpDouble.NaValue">
+            <summary>
+            The double that means NA.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpDouble.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpDouble"/> class.
+            </summary>
+            <param name="theValue">
+            The value.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpDouble.CheckNa(System.Double)">
+            <summary>
+            Checks whether a value is NA.
+            </summary>
+            <param name="x">
+            The value to be checked.
+            </param>
+            <returns>
+            True if the value is NA, false otherwise.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpDouble.CheckNa(RserveCli.SexpDouble)">
+            <summary>
+            Checks whether a value is NA.
+            </summary>
+            <param name="x">
+            The value to be checked.
+            </param>
+            <returns>
+            True if the value is NA, false otherwise.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpDouble.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">
+            The <see cref="T:System.Object"/> to compare with this instance.
+            </param>
+            <returns>
+            <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpDouble.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpDouble.ToNative">
+            <summary>
+            Converts the Sexp into the most appropriate native representation. Use with caution--this is more a rapid prototyping than
+            a production feature.
+            </summary>
+            <returns>
+            A CLI native representation of the Sexp
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpDouble.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpDouble.Na">
+            <summary>
+            Gets the NA value of double.
+            </summary>
+        </member>
+        <member name="P:RserveCli.SexpDouble.AsDouble">
+            <summary>
+            Gets or sets as double.
+            </summary>
+            <value>
+            As double.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpDouble.AsInt">
+            <summary>
+            Gets or sets as int.
+            </summary>
+            <value>
+            The value as an integer.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpDouble.IsNa">
+            <summary>
+            Gets a value indicating whether this instance is NA.
+            </summary>
+            <value>
+              <c>true</c> if this instance is NA; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpDouble.Value">
+            <summary>
+            Gets the Sexp's value or a special value for NA
+            </summary>
+        </member>
+        <member name="T:RserveCli.SexpBoolValue">
+            <summary>
+            The values a bool values in a Sexp can take. Normal boolean logic and NA.
+            </summary>
+        </member>
+        <member name="F:RserveCli.SexpBoolValue.False">
+            <summary>
+            The boolean FALSE value
+            </summary>
+        </member>
+        <member name="F:RserveCli.SexpBoolValue.True">
+            <summary>
+            The boolean TRUE value
+            </summary>
+        </member>
+        <member name="F:RserveCli.SexpBoolValue.Na">
+            <summary>
+            The NA value
+            </summary>
+        </member>
+        <member name="T:RserveCli.SexpBool">
+            <summary>
+            A convenience representation for R boolean values. Note that Rserve never uses this type,
+            but puts even a single number into a SexpArrayBool.
+            </summary>
+        </member>
+        <member name="F:RserveCli.SexpBool.NaValue">
+            <summary>
+            The representation of NA
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpBool.#ctor(RserveCli.SexpBoolValue)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpBool"/> class.
+            </summary>
+            <param name="theValue">
+            The value.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpBool.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpBool"/> class.
+            </summary>
+            <param name="theValue">
+            if set to <c>true</c> [the value].
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpBool.CheckNa(RserveCli.SexpBoolValue)">
+            <summary>
+            Checks whether a value is NA.
+            </summary>
+            <param name="x">
+            The value to be checked.
+            </param>
+            <returns>
+            True if the value is NA, false otherwise.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpBool.CheckNa(RserveCli.SexpBool)">
+            <summary>
+            Checks whether a value is NA.
+            </summary>
+            <param name="x">
+            The value to be checked.
+            </param>
+            <returns>
+            True if the value is NA, false otherwise.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpBool.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">
+            The <see cref="T:System.Object"/> to compare with this instance.
+            </param>
+            <returns>
+            <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpBool.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpBool.ToNative">
+            <summary>
+            Converts the Sexp into the most appropriate native representation. Use with caution--this is more a rapid prototyping than
+            a production feature.
+            </summary>
+            <returns>
+            A CLI native representation of the Sexp
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpBool.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpBool.Na">
+            <summary>
+            Gets the representation of NA
+            </summary>
+        </member>
+        <member name="P:RserveCli.SexpBool.AsBool">
+            <summary>
+            Gets or sets a value indicating whether [as bool].
+            </summary>
+            <value>
+              <c>true</c> if [as bool]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpBool.AsSexpBool">
+            <summary>
+            Gets or sets as sexp bool.
+            </summary>
+            <value>
+            As sexp bool.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpBool.IsNa">
+            <summary>
+            Gets a value indicating whether this instance is NA.
+            </summary>
+            <value>
+              <c>true</c> if this instance is NA; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpBool.Value">
+            <summary>
+            Gets the value of the Sexp
+            </summary>
+        </member>
+        <member name="T:RserveCli.DES">
+            <summary>
+            DES Encryption algorithm.
+            Based on FreeBSD's libcrypt:
+               secure/lib/libcrypt/crypt-des.c
+            </summary>
+        </member>
+        <member name="M:RserveCli.DES.Encrypt(System.String,System.String)">
+            <summary>
+            This method encrypt the given string with the salt indicated, using DES Algorithm
+            </summary>
+            <param name="k">
+            The string to be encrypted.
+            </param>
+            <param name="s">
+            The salt.
+            </param>
+            <returns>
+            The encrypted string.
+            </returns>
+        </member>
+        <member name="T:RserveCli.Qap1">
+            <summary>
+            An implementation of the QAP1 protocol used to communicate with Rserve
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.DtString">
+            <summary>
+            String data
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.DtByteStream">
+            <summary>
+            Byte stream data
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.DtSexp">
+            <summary>
+            The data stream containts a Sexp
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.DtLarge">
+            <summary>
+            Large data flag
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtNull">
+            <summary>
+            The Sexp is NULL
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtS4">
+            <summary>
+            S4 object Sexp
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtVector">
+            <summary>
+            Vector Sexp
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtClos">
+            <summary>
+            Closure Sexp
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtSymName">
+            <summary>
+            Symbol name Sexp
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtListNoTag">
+            <summary>
+            List without tags
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtListTag">
+            <summary>
+            List with tags
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtLangNoTag">
+            <summary>
+            Lang without tags
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtLangTag">
+            <summary>
+            Lang with tags
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtVectorExp">
+            <summary>
+            Vector expression
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtVectorStr">
+            <summary>
+            Vector string
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtArrayInt">
+            <summary>
+            Array of integers
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtArrayDouble">
+            <summary>
+            Array of doubles
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtArrayString">
+            <summary>
+            Array of strings
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtArrayBoolUa">
+            <summary>
+            Array of Bool UA
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtArrayBool">
+            <summary>
+            Array of Bool
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtRaw">
+            <summary>
+            The Sexp contains raw data
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtArrayComplex">
+            <summary>
+            Array of complex
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtUnknown">
+            <summary>
+            Unknown data type
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.XtHasAttr">
+            <summary>
+            Flag for the presence of attributes
+            </summary>
+        </member>
+        <member name="F:RserveCli.Qap1.socket">
+            <summary>
+            The socket used to communicate with Rserve
+            </summary>
+        </member>
+        <member name="M:RserveCli.Qap1.#ctor(System.Net.Sockets.Socket)">
+            <summary>
+            Initializes a new instance of the Qap1 class.
+            </summary>
+            <param name="socket">The this.socket through which we'll communicate with the server.</param>
+        </member>
+        <member name="M:RserveCli.Qap1.EncodeSexp(RserveCli.Sexp)">
+            <summary>
+            Encode a Sexp in Qap1 format
+            </summary>
+            <param name="s">The Sexp to be encoded</param>
+            <returns>QAP4-encoded bit stream</returns>
+        </member>
+        <member name="M:RserveCli.Qap1.DecodeSexp(System.Byte[],System.Int32@)">
+            <summary>
+            Decode a Qap1-encoded Sexp
+            </summary>
+            <param name="data">The byte stream in which the Sexp is encoded</param>
+            <param name="start">At which index of data does the Sexp begin?</param>
+            <returns>The decoded Sexp.</returns>
+        </member>
+        <member name="M:RserveCli.Qap1.CommandReadStream(System.Int32,System.Collections.Generic.IList{System.Object})">
+            <summary>
+            Send a command and read the stream it returns (used for reading files)
+            </summary>
+            <param name="cmd">Command to be sent to the server</param>
+            <param name="data">Arguments for the command</param>
+            <returns>The data read</returns>
+        </member>
+        <member name="M:RserveCli.Qap1.Command(System.Int32,System.Collections.Generic.IList{System.Object})">
+            <summary>
+            Send a command and read the result
+            </summary>
+            <param name="cmd">Command to be sent to the server</param>
+            <param name="data">Arguments for the command</param>
+            <returns>The result, parsed into appropriate objects (string or Sexp)</returns>
+        </member>
+        <member name="M:RserveCli.Qap1.SubmitCommand(System.Int32,System.Collections.Generic.IList{System.Object})">
+            <summary>
+            Submit a command to Rserve
+            </summary>
+            <param name="cmd">The command to be submitted to the server</param>
+            <param name="data">The arguments for the command</param>
+            <returns>Length of the response in bytes</returns>
+        </member>
+        <member name="T:RserveCli.RConnection">
+            <summary>
+            A connection to an R session
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdAssignSexp">
+            <summary>
+            Assign a Sexp
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdAttachSession">
+            <summary>
+            Attach session
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdCloseFile">
+            <summary>
+            Close a file
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdCreateFile">
+            <summary>
+            Create a file for writing
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdCtrlEval">
+            <summary>
+            Control command Evaluate
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdCtrlShutdown">
+            <summary>
+            Control command Shutdown
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdCtrlSource">
+            <summary>
+            Control command Source
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdDetachedVoidEval">
+            <summary>
+            Detached evaluation without returning a result
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdDettachSession">
+            <summary>
+            Detach session, but keep it around
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdEval">
+            <summary>
+            Evaluate a Sexp
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdLogin">
+            <summary>
+            Login with username and password
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdOpenFile">
+            <summary>
+            Open a file for reading
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdReadFile">
+            <summary>
+            Read from an open file
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdRemoveFile">
+            <summary>
+            Remove a file
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdSetBufferSize">
+            <summary>
+            Set buffer size
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdSetEncoding">
+            <summary>
+            Set Encoding (I recommend UTF8)
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdSetSexp">
+            <summary>
+            Set a Sexp
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdShutdown">
+            <summary>
+            Shut down the Server
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdVoidEval">
+            <summary>
+            Evaluate without returning a result
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.CmdWriteFile">
+            <summary>
+            Write to an open file
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.socket">
+            <summary>
+            The socket we use to talk to Rserve
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.connectionParameters">
+            <summary>
+            The connection parameters we received from Rserve
+            </summary>
+        </member>
+        <member name="F:RserveCli.RConnection.protocol">
+            <summary>
+            The protocol that handles communication for us
+            </summary>
+        </member>
+        <member name="M:RserveCli.RConnection.#ctor(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the RConnection class.
+            </summary>
+            <param name="hostname">
+            Hostname of the server
+            </param>
+            <param name="port">
+            Port on which Rserve listens
+            </param>
+            <param name="user">
+            User name for the user, or nothing for no authentication
+            </param>
+            <param name="password">
+            Password for the user, or nothing
+            </param>
+        </member>
+        <member name="M:RserveCli.RConnection.#ctor(System.Net.IPAddress,System.Int32,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the RConnection class.
+            </summary>
+            <param name="addr">
+            Address of the Rserve server, or nothing for localhost
+            </param>
+            <param name="port">
+            Port on which the server listens
+            </param>
+            <param name="user">
+            User name, or nothing for no authentication
+            </param>
+            <param name="password">
+            Password for the user
+            </param>
+        </member>
+        <member name="M:RserveCli.RConnection.Assign(System.String,RserveCli.Sexp)">
+            <summary>
+            Assign an R variable on the server. this[symbol] = value is syntactic sugar for this operation.
+            </summary>
+            <param name="symbol">
+            Variable name
+            </param>
+            <param name="val">
+            Sexp to be assigned to the variable
+            </param>
+        </member>
+        <member name="M:RserveCli.RConnection.Eval(System.String)">
+            <summary>
+            Evaluate an R command and return the result. this[string] is syntactic sugar for the same operation.
+            </summary>
+            <param name="s">
+            Command to be evaluated
+            </param>
+            <returns>
+            Sexp that resulted from the command
+            </returns>
+        </member>
+        <member name="M:RserveCli.RConnection.ReadFile(System.String)">
+            <summary>
+            Read a file from the server
+            </summary>
+            <param name="fileName">
+            Name of the file to be read. Avoid jumping across directories.
+            </param>
+            <returns>
+            Stream with the file data.
+            </returns>
+        </member>
+        <member name="M:RserveCli.RConnection.RemoveFile(System.String)">
+            <summary>
+            Delete a file from the server
+            </summary>
+            <param name="fileName">
+            Name of the file to be deleted
+            </param>
+        </member>
+        <member name="M:RserveCli.RConnection.VoidEval(System.String)">
+            <summary>
+            Evaluate an R command and don't return the result (for efficiency)
+            </summary>
+            <param name="s">
+            R command tp be evaluated
+            </param>
+        </member>
+        <member name="M:RserveCli.RConnection.WriteFile(System.String,System.IO.Stream)">
+            <summary>
+            Write a file to the server.
+            Note: It'd be better to return a Stream object to be written to, but Rserve doesn't seem to support an asynchronous connection
+            for file reading and writing.
+            </summary>
+            <param name="fileName">
+            Name of the file to be written. Avoid jumping across directories.
+            </param>
+            <param name="data">
+            Data to be written to the file
+            </param>
+        </member>
+        <member name="M:RserveCli.RConnection.Dispose">
+            <summary>
+            Dispose of the connection
+            </summary>
+        </member>
+        <member name="M:RserveCli.RConnection.Init(System.String,System.String)">
+            <summary>
+            Common initialization routine called by the constructures
+            </summary>
+            <param name="user">
+            User name, or null for no authentication
+            </param>
+            <param name="password">
+            Password for the user, or null
+            </param>
+        </member>
+        <member name="M:RserveCli.RConnection.Login(System.String,System.String,System.String,System.String)">
+            <summary>
+            Login to Rserver
+            </summary>
+            <param name="user">
+            User name for the user
+            </param>
+            <param name="password">
+            Password for the user
+            </param>
+            <param name="method">
+            pt for plain text
+            </param>
+            <param name="salt">
+            The salt to use to encrypt the password
+            </param>
+        </member>
+        <member name="P:RserveCli.RConnection.Item(System.String)">
+            <summary>
+            Syntactic sugar for variable assignment and expression evaluation.
+            </summary>
+            <param name="s">The variable to be assigned to or the expression to be evaluated</param>
+            <returns>The value of the expression</returns>
+        </member>
+        <member name="T:RserveCli.SexpInt">
+            <summary>
+            A convenience representation for R integer values. Note that Rserve never uses this type,
+            but puts even a single number into a SexpArrayInt.
+            </summary>
+        </member>
+        <member name="F:RserveCli.SexpInt.NaValue">
+            <summary>
+            The special values that marks an integer as NA.
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpInt.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RserveCli.SexpInt"/> class.
+            </summary>
+            <param name="theValue">
+            The value.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpInt.CheckNa(System.Int32)">
+            <summary>
+            Checks whether a value is NA.
+            </summary>
+            <param name="x">
+            The value to be checked.
+            </param>
+            <returns>
+            True if the value is NA, false otherwise.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpInt.CheckNa(RserveCli.SexpInt)">
+            <summary>
+            Checks whether a value is NA.
+            </summary>
+            <param name="x">
+            The value to be checked.
+            </param>
+            <returns>
+            True if the value is NA, false otherwise.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpInt.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">
+            The <see cref="T:System.Object"/> to compare with this instance.
+            </param>
+            <returns>
+            <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpInt.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpInt.ToNative">
+            <summary>
+            Converts the Sexp into the most appropriate native representation. Use with caution--this is more a rapid prototyping than
+            a production feature.
+            </summary>
+            <returns>
+            A CLI native representation of the Sexp
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpInt.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpInt.Na">
+            <summary>
+            Gets a representation of the NA value.
+            </summary>
+        </member>
+        <member name="P:RserveCli.SexpInt.AsDouble">
+            <summary>
+            Gets or sets as double.
+            </summary>
+            <value>
+            As double.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpInt.AsInt">
+            <summary>
+            Gets or sets as int.
+            </summary>
+            <value>
+            The value as an integer.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpInt.IsNa">
+            <summary>
+            Gets a value indicating whether this instance is NA.
+            </summary>
+            <value>
+              <c>true</c> if this instance is NA; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpInt.Value">
+            <summary>
+            Gets the value.
+            </summary>
+        </member>
+        <member name="T:RserveCli.SexpNull">
+            <summary>
+            The S NULL this.Value
+            </summary>
+        </member>
+        <member name="M:RserveCli.SexpNull.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">
+            The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </exception>
+        </member>
+        <member name="M:RserveCli.SexpNull.Contains(RserveCli.Sexp)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </param>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpNull.CopyTo(RserveCli.Sexp[],System.Int32)">
+            <summary>
+            Copies to.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <param name="arrayIndex">
+            Index of the array.
+            </param>
+        </member>
+        <member name="M:RserveCli.SexpNull.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpNull.ToNative">
+            <summary>
+            Converts the Sexp into the most appropriate native representation. Use with caution--this is more a rapid prototyping than
+            a production feature.
+            </summary>
+            <returns>
+            A CLI native representation of the Sexp
+            </returns>
+        </member>
+        <member name="M:RserveCli.SexpNull.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpNull.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <returns>
+            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpNull.IsNa">
+            <summary>
+            Gets a value indicating whether this instance is NA.
+            </summary>
+            <value>
+            <c>true</c> if this instance is NA; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpNull.IsNull">
+            <summary>
+            Gets a value indicating whether this instance is null.
+            </summary>
+            <value>
+            <c>true</c> if this instance is null; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:RserveCli.SexpNull.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </summary>
+            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:RserveCli.SexpNull.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the object.</param>
+            <returns>
+            The element at the specified index.
+            </returns>
+        </member>
+    </members>
+</doc>

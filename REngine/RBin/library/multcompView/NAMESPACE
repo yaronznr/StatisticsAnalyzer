@@ -1,0 +1,13 @@
+export(multcompLetters, multcompLetters2, 
+       multcompLetters3, multcompLetters4, multcompTs,
+       multcompBoxplot, vec2mat, vec2mat2, extract_p)
+
+importFrom(graphics, plot)
+
+S3method(plot, multcompLetters)
+S3method(plot, multcompTs)
+S3method(print, multcompLetters)
+
+S3method(extract_p, default)
+S3method(extract_p, TukeyHSD)
+S3method(extract_p, mc)

@@ -1,0 +1,20 @@
+cooks.distance.estex    Compute the Cook's distance measure of
+                        influential data on mixed effects models
+dfbetas.estex           Compute the DFBETAS measure of influential data
+exclude.influence       Exclude the influence of a grouped set of
+                        observations in mixed effects models.
+grouping.levels         Returns the levels of a grouping factor in a
+                        mixed effects regression model
+influence.ME-package    Influence.ME: Tools for detecting influential
+                        data in mixed effects models
+influence.mer           influence returns mixed model estimates,
+                        iteratively excluding the influence of data
+                        nested within single grouping factors.
+pchange                 Compute the percentage change, as measure of
+                        influential data
+plot.estex              Dotplot visualization of measures of influence
+school23                Math test performance in 23 schools
+se.fixef                Standard errors of fixed estimates
+sigtest                 Test for changes in the level of statistical
+                        significance resulting from the deletion of
+                        potentially influential observations

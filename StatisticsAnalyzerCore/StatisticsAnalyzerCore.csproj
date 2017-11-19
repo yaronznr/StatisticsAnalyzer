@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F4CED346-05B7-4F7D-8B65-968BE4841F45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StatisticsAnalyzerCore</RootNamespace>
+    <AssemblyName>StatisticsAnalyzerCore</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataExplore\Dataset.cs" />
+    <Compile Include="DataExplore\DatasetRelationAnalyzer.cs" />
+    <Compile Include="DataExplore\TableAnalysis.cs" />
+    <Compile Include="DataManipulation\CenterVariableTransformer.cs" />
+    <Compile Include="DataManipulation\DataTransformer.cs" />
+    <Compile Include="DataManipulation\LogTransformer.cs" />
+    <Compile Include="DataManipulation\RemoveRowsTransformer.cs" />
+    <Compile Include="Helper\AnovaNamingHelper.cs" />
+    <Compile Include="Helper\DataConversionHelper.cs" />
+    <Compile Include="Helper\DistributionHelper.cs" />
+    <Compile Include="Helper\StatisticsTextHelper.cs" />
+    <Compile Include="Modeling\Exceptions.cs" />
+    <Compile Include="Modeling\MixedLinearModel.cs" />
+    <Compile Include="Modeling\MixedModel.cs" />
+    <Compile Include="Modeling\MixedModelResult.cs" />
+    <Compile Include="Modeling\ModelAnalysis.cs" />
+    <Compile Include="Modeling\ModelAnalyzer.cs" />
+    <Compile Include="Modeling\ModelGenerator.cs" />
+    <Compile Include="Modeling\QuestionAnalysis.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Questions\DataExploreQuestion.cs" />
+    <Compile Include="Questions\DataExploreQuestionFactory.cs" />
+    <Compile Include="Questions\IsolatedLinearVariableQuestion.cs" />
+    <Compile Include="Questions\ModelValidityQuestion.cs" />
+    <Compile Include="Questions\MultipleWayAllLevelAnovaQuetion.cs" />
+    <Compile Include="Questions\MultiTestAnalysisQuestion.cs" />
+    <Compile Include="Questions\NWayAnovaQuestionFactory.cs" />
+    <Compile Include="Questions\QuestionAnalyzer.cs" />
+    <Compile Include="Questions\Qusetions.cs" />
+    <Compile Include="Questions\RandomCovariateQuestion.cs" />
+    <Compile Include="Questions\RawDataViewerQuestion.cs" />
+    <Compile Include="Questions\RegressionSummaryQuestion.cs" />
+    <Compile Include="Questions\SimpleRandomEffectBiasQuestion.cs" />
+    <Compile Include="Questions\SingleVariableMultipleValuesQuestion.cs" />
+    <Compile Include="Questions\SingleVariableTwoValuesQuestion.cs" />
+    <Compile Include="Questions\TwoWay22AnovaQuestion.cs" />
+    <Compile Include="Questions\TwoWayContinousVariableAnovaQuestion.cs" />
+    <Compile Include="R\RMixedModelResultParser.cs" />
+    <Compile Include="R\RScriptFactory.cs" />
+    <Compile Include="DataExplore\TableManipulations.cs" />
+    <Compile Include="StatConfig\StatConfig.cs" />
+    <Compile Include="StatConfig\StatConfigWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StatConfig\StatConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

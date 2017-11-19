@@ -1,0 +1,280 @@
+AP.test                 Agresti-Pendergrast test
+BCI.count               Barro Colorado Island Tree Counts
+BCI.plant               Tree presence/absence data from Barro Colorado
+                        island
+BDM.test                Brunner-Dette-Munk test
+Bayes.disc              Bayesian graphical summaries for discrete data.
+C.isotope               Atmospheric carbon and D14C measurements
+ConDis.matrix           Calculation and display of concordant and
+                        discordant pairs
+D.sq                    Mahalanobis distance for two sites using a
+                        pooled covariance matrix
+DH.test                 Doornick-Hansen test for multivariate
+                        normality.
+ES.May                  May's effective specialization index
+Fbird                   Frigatebird drumming frequency data
+G.mean                  Geometric mean
+Glucose2                Glucose Levels Following Alcohol Ingestion
+H.mean                  Harmonic mean
+HL.mean                 Hodges-Lehman estimator of location
+K                       Soil potassium analyses from 8 laboratories
+Kappa                   Calculates kappa statistic and other
+                        classification error statistics
+Kullback                Kullback test for equal covariance matrices.
+MC                      Simple functions for MCMC demonstrations
+MC.test                 Monte Carlo hypothesis testing for two samples.
+ML.k                    Maximum likelihood algorithm for determining
+                        the binomial dispersal coefficient
+MS.test                 Mack-Skillings test
+Mode                    Sample mode
+PCB                     PCBs and herring egg thickness
+PM2.5                   PM 2.5 pollutant data from Pocatello Idaho.
+Preston.dist            Preston diversity analysis
+R.hat                   R hat MCMC convergence statistic
+SM.temp.moist           Alpine soil temperature and moisture time
+                        series
+Semiconductor           Split plot computer chip data from Littell et
+                        al. (2006).
+Venn                    Venn probability diagrams for an event with two
+                        outcomes
+agrostis                Agrostis variabilis cover measurements
+aids                    Aids and veterans dataset
+alfalfa.split.plot      An agricultural split plot design
+alpha.div               Functions for calculating alpha diversity.
+anm.ExpDesign           Animated depiction of experimental designs
+anm.LVcomp              Animated depictions of Lotka-Volterra
+                        competition and exploitation models
+anm.ci                  Animation demonstrations of confidence
+                        intervals.
+anm.coin                Animated demonstration of frequentist binomial
+                        convergence of probability using a coin flip.
+anm.cont.pdf            Animated demonstration of density for a
+                        continuous pdf
+anm.die                 Animated depiction of six-sided die throws.
+anm.geo.growth          Animated depictions of population growth
+anm.loglik              Animated plots of log-likelihood functions
+anm.ls                  Animated plot of least squares function.
+anm.ls.reg              Animated plot of least squares function.
+anm.mc.bvn              Animation of Markov Chain Monte Carlo walks in
+                        bivariate normal space
+anm.samp.design         Animated demonstration of randomized sampling
+                        designs
+anolis                  Anolis lizard contingency table data
+anscombe                Anscobe's quartet
+ant.dew                 Ant honeydew data
+asthma                  Asthma repeated measures dataset from Littell
+                        et al. (2002)
+auc                     Area under a reciever operating characterisitic
+                        (ROC) curve
+baby.walk               Baby walking times experimental data
+bats                    Bat forearm length as a function of bat age
+bayes.lm                Bayesian linear models with uniform priors
+bear                    Grizzly bear litter sizes
+beetle                  Wood boring beetle data.
+bin2dec                 Conversion of binary digits to decimal numbers
+bombus                  Bombus pollen data.
+bone                    Bone development data
+book.menu               Pulldown menus for 'asbio' interactive
+                        graphical functions
+boot.ci.M               Bootstrap CI of M-estimators differences of two
+                        samples
+bootstrap               A simple function for bootstrapping
+bound.angle             Angle of azimuth to a boundary.
+bplot                   Barplots with error bars for pairwise
+                        comparisons.
+bromus                  Bromus tectorum dataset
+bv.boxplot              Bivariate boxplots
+bvn.plot                Make plots of bivariate normal distributions
+caribou                 Caribou count data
+chi.plot                Chi plots for diagnosing multivariate
+                        independence.
+chronic                 Chronic ailment counts for urban and rural
+                        women in Australia
+ci.boot                 Bootstrap confidence intervals
+ci.median               Confidence interval for the median
+ci.mu.oneside           One sided confidence interval for mu.
+ci.mu.z                 Z and t confidence intervals for mu.
+ci.p                    Confidence interval estimation for the binomial
+                        parameter pi using five popular methods.
+ci.prat                 Confidence intervals for the ratio of binomial
+                        and multinomial proportions
+ci.prat.ak              Confidence intervals for ratios of proportions
+                        when the denominator is known
+ci.sigma                Confidence interval for sigma squared.
+ci.strat                Confidence intervals for stratified random
+                        samples.
+cliff.env               Environmental data for the community dataset
+                        cliff.sp
+cliff.sp                Yellowstone NP cliff community data
+corn                    Corn yield data
+crab.weight             crab gill and body weight data
+crabs                   Agresti crabs dataset
+cuckoo                  Tippett cuckoo egg data
+dO2                     Dissolved levels in locations above and below a
+                        town
+death.penalty           Florida state death penalty data
+deer                    Maternal deer data
+deer.296                Mule deer telemetry data
+depression              Hamilton depression scores before and after
+                        drug treatment
+drugs                   Contingency data for high school marijuana,
+                        alcohol, and cigarette use
+e.cancer                Esophageal cancer data modified slightly to
+                        create a balanced three-way factorial design
+eff.rbd                 Efficiency of a randomized block design
+                        compared to a CRD
+enzyme                  Enzymatic rate data for the phospholipase
+                        protein ExoU
+exercise.repeated       Repeated measures data for an exercise
+                        experiment.
+fire                    Fire data from Yellowstone National Park
+fly.sex                 Fly sex and longevity
+frog                    Australian frog calls following fire
+fruit                   Fruit weight data from Littell et al. (2002)
+g.test                  Likelihood ratio test for tabular data
+garments                Garment Latin square data from Littell et al.
+                        (2002)
+goats                   Mountain goat data from Yellowstone National
+                        Park
+grass                   Agricultural factorial design
+heart                   Heart rate data from Milliken and Johnson
+                        (2009)
+huber.NR                Huber M-estimator iterative least squares
+                        algorithm
+huber.mu                Huber M-estimator of location
+huber.one.step          Huber one step M-estimator
+illusions               Visual illusions illustrating human preception
+                        errors.
+ipomopsis               Ipomopsis fruit yield data
+joint.ci.bonf           Calculates joint confidence intervals for
+                        parameters in linear models using a Bonferroni
+                        procedure.
+km                      Kaplan-Meier survivorship.
+larrea                  Creosote bush counts
+life.exp                Mouse life expectancy data.
+lm.select               AIC, AICc, BIC, Mallow's Cp, and PRESS
+                        evaluation of linear models
+loess.surf              Loess 2D and 3D smooth plots
+magnets                 Magnet pain relief data
+mcmc.norm.hier          Gibbs sampling of normal hierarchical models
+modlevene.test          Modified Levene's test
+montane.island          Mountain island biogeographic data
+moose.sel               Datasets for resource use and availability
+mosquito                Mosquito wing length data
+myeloma                 Patient responses to myeloma drug treatments
+near.bound              Nearest neighbor boundary coordinates
+one.sample.t            One sample t-test
+one.sample.z            One sample z-test
+paik                    Paik diagrams
+pairw.anova             Conducts pairwise post hoc and planned
+                        comparisons associated with an ANOVA
+pairw.fried             Multiple pairwise comparison procedure to
+                        accompany a Friedman test.
+pairw.kw                Multiple pairwise comparison procedure to
+                        accompany a Kruskal-Wallis test
+panel.cor.res           Functions for customizing correlation matrices
+partial.R2              Partial correlations of determination in
+                        multiple regression
+partial.resid.plot      Partial residual plots for interpretation of
+                        multiple regression.
+perm.fact.test          Permutation test for two and three way
+                        factorial designs
+pika                    Nitrogen content of soils under pika haypiles.
+plantTraits             Plant traits for 136 species
+plot.pairw              Plots confidence intervals and/or bars with
+                        letters indicating significant differences for
+                        objects from class pairw
+plotAncova              Creates plots for one way ANCOVAs
+plotCI.reg              Plots a simple linear regression along with
+                        confidence and prediction intervals.
+polyamine               Polyamine data from Hollander and Wolfe (1999)
+portneuf                Portneuf River longitudinal N and P data.
+potash                  Potash/cotton strength data
+potato                  Fisher's Rothamsted potato data
+power.z.test            Power analysis for a one sample z-test
+press                   prediction sum of squares
+prostate                Prostate cancer data
+prp                     Perpendicularity
+pseudo.v                Jacknife pseudo-values
+qq.Plot                 Normal quantile plots for multiple factor
+                        levels
+r.bw                    Biweight midvariance, and biweight
+                        midcorrelation.
+r.dist                  Visualize the sampling distribution of
+                        Pearson's product moment correlation
+r.pb                    Percentage bend correlation
+rat                     Rat glycogen data from Sokal and Rohlf (2012).
+refinery                Refinery CO dataset
+rinvchisq               Random draws from a scaled inverse chi-square
+                        distribution
+samp.dist               Animated and/or snapshot representations of a
+                        statistic's sampling distribution
+samp.dist.mech          Animated representation of sampling
+                        distribution basics
+sc.twin                 Matched pairs schizophrenia data
+se.jack                 Jackknife standard error from a set of
+                        pseudovalues
+sedum.ts                CO2 exchange time series data
+see.HW                  Visualize the Hardy Weinberg equlibrium
+see.M                   Visualization of the M-estimation function
+see.accPrec.tck         Interactive depiction of precision and accuracy
+see.ancova.tck          Visualize ANCOVA mechanics
+see.anova.tck           Interactive depiction of the ANOVA mechanism
+see.cor.range.tck       Depict the effect of range on correlation
+see.exppower.tck        Visualize exponential power functions
+see.lma.tck             ANOVA linear models
+see.lmr.tck             Regression linear model derivation from linear
+                        algebra
+see.lmu.tck             Unbalanced and balanced linear models
+see.logic               Interactive worksheet for logical and
+                        fallacious arguments
+see.mixedII             Depiction of the effect of random level
+                        selection on inferences concerning fixed
+                        effects
+see.mnom.tck            Interactive depiction of the multinomial
+                        distribution
+see.move                Interactive visualization of least squares
+                        regression.
+see.nlm                 Visualize important non-linear functions
+see.norm.tck            Visualize pdfs
+see.power               Interactive depiction of type I and type II
+                        error and power
+see.rEffect.tck         Visualize random effects model
+see.regression.tck      Demonstration of regression mechanics
+see.roc.tck             Interactive depiction of ROC curves
+see.smooth.tck          Interactive smoother demonstrations
+see.ttest.tck           Visualize t-tests
+see.typeI_II            Interactive depiction of type I and II error
+selftest.se.tck1        Interactive self-testing statistical questions
+shad                    American gizzard shad data
+shade.norm              Shading functions for interpretation of pdf
+                        probabilities.
+shade.norm.tck          GUI display of probability
+skew                    Sample skewness and kurtosis
+snore                   Snoring and heart disease contingency data
+so2.us.cities           SO2 data for 32 US cities with respect to 6
+                        explanatory variables
+stan.error              Variance and standard error estimators for the
+                        sampling distribution of the sample mean
+starkey                 DEM data from the Starkey experimental forest
+                        in NE Oregon.
+trag                    Salsify height dataset
+transM                  Transition matrix analysis
+trim.me                 Trim data
+trim.ranef.test         Robust test for random factors using trimmed
+                        means.
+trim.test               Robust one way trimmed means test.
+tukey.add.test          Tukey's test of additivity.
+veneer                  Veneer data from Littell et al. (2002)
+vs                      Scandinavian site by species community matrix
+wash.rich               Species richness and environmental variables
+                        from Mt Washburn
+webs                    Spider web length data
+wheat                   Agricultural randomized block design
+whickham                Whickham contingency table data for smokers and
+                        survivorship
+wildebeest              Wildebeest carcass categorical data
+win                     Winsorize data
+world.co2               World CO2 levels, by country, from 1980 to 2006
+world.pop               Population levels in various countries since
+                        1980

@@ -1,0 +1,31 @@
+﻿@using ServicesLib
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/bundles/datatables/css")
+</head>
+    <body>
+        @Html.Partial("_UserSettings")
+
+        <div id="body">
+            @RenderBody()
+        </div>
+
+        <!-- footer>
+            <p>&copy; 2014 - Yaron Ziner, Prof. Lior Wolf</p>
+            </ -->
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/ajaxlogin")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

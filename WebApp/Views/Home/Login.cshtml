@@ -1,0 +1,62 @@
+﻿@model WebApp.Models.LoginModel
+@{
+    ViewBag.Title = "Statistics Analyzer";
+}
+@functions{
+    public string GetAntiForgeryToken()
+    {
+        try
+        {
+            string cookieToken, formToken;
+            AntiForgery.GetTokens(null, out cookieToken, out formToken);
+            return cookieToken + ":" + formToken;
+        }
+        catch (Exception)
+        {
+            return string.Empty;
+        }
+    }
+}
+
+<div>
+    <div id="title">@{<text>@ViewBag.Title</text>}</div>
+</div>
+
+<div id="main-content"> 
+    <div class="todoList" id="loginPanel">
+        <section id="localLoginPanel">
+            <h2>Log in</h2>
+            @Html.Partial("_Login")
+        </section>
+        <section id="loginSummaryPanel">
+            <h2>Dataset Analysis</h2>
+            <div>
+                <p>Quickly create, analyze and browse mixed-models and datasets.</p>
+            </div>
+        </section>
+        <p>First time here? <a id="showRegister">Sign up</a></p>
+    </div>
+    <div class="todoList" id="registerPanel">
+        <section id="localRegisterPanel">
+            <h2>Sign up</h2>
+            @Html.Partial("_Register")
+        </section>
+        <section id="registerSummaryPanel">
+            <h2>Log in using another service</h2>
+            <div>
+                <p>Quickly create, analyze and browse mixed-models and datasets.</p>
+            </div>
+        </section>
+        <p>Already signed up? <a id="showLogin">Log in</a></p>
+    </div>
+</div>
+
+    <div>
+    @section scripts {
+        @Scripts.Render("~/bundles/knockout")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/mixed")
+        @Scripts.Render("~/bundles/flot")
+        @Scripts.Render("~/bundles/datatables")
+    }
+    </div>

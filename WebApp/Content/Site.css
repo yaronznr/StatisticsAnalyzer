@@ -1,0 +1,730 @@
+﻿body, input, button {
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    font-size: 1.2em;
+    text-decoration:initial;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    /*max-width: 980px; Remove this to make it full screen*/
+    margin-top:40px;
+    margin-right:200px;
+    height: 100%;
+    overflow-y:hidden;
+    overflow-x: hidden;
+}
+
+button, input[type=submit] {
+    border: 1px solid #dedede;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.content-wrapper {
+    margin: 0 auto;
+    max-width: 960px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.demo-placeholder {
+	width: 100%;
+	height: 100%;
+	font-size: 14px;
+	line-height: 1.2em;
+}
+
+.demo-container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	width: 850px;
+	height: 450px;
+	padding: 20px 15px 15px 15px;
+	margin: 15px auto 30px auto;
+	border: 1px solid #ddd;
+	background: #fff;
+	background: linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -o-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -ms-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -moz-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -webkit-linear-gradient(#f6f6f6 0, #fff 50px);
+    -o-box-shadow: 0 3px 10px #000000;
+    -o-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    -ms-box-shadow: 0 3px 10px #000000;
+    -moz-box-shadow: 0 3px 10px #000000;
+    -webkit-box-shadow: 0 3px 10px #000000;
+    box-shadow: 0 3px 10px #000000;
+}
+
+/*#region Header */
+
+header {
+    margin: 0 .7em;
+    position: relative;
+    z-index: -1;
+}
+
+header p {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+#title {
+    position: fixed;
+}
+
+#formulaPane {
+    position: fixed;
+    top: 100px;
+    right: 250px;
+    left: 50px;
+}
+
+#userSettingsBar {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:40px;
+    margin-right:200px;
+    background:#ffd800;
+}
+
+.regressionTable {
+    border: 1px solid black;
+}
+
+#cogMenu {
+    height: 20px;
+    vertical-align: text-bottom;
+}
+
+#sampleList {
+    height: 200px;
+}
+
+.sampleDescription {
+    margin-bottom: 5px;
+}
+
+#userSettings {
+    float:right;
+    margin-right:210px;
+    vertical-align: bottom;
+}
+
+#optionsMenu {
+    float:right;
+    margin-right:-246px;
+    margin-top: 37px;
+    width: 200px;
+    vertical-align: bottom;
+    background:white;
+    display: none;
+    border: #ffd800;
+    border-width: medium;
+    border-style: solid;
+    position: relative;
+    z-index: 10;
+    right: 246px;
+    bottom: 40px;
+}
+
+.optionsMenuItem {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.optionsMenuLink {
+    text-decoration: none;    
+}
+
+#userSettingsNoVarPane {
+    float:right;
+    margin-right:50px;
+}
+
+#userSettings > form:before {
+    content: ' | ';
+}
+
+#userSettings > div:before {
+    content: ' | ';
+}
+
+#userSettings form {
+    display: inline;
+}
+
+#menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+    #menu li {
+        display: inline-block;
+    }
+
+/* ReSharper disable once CssBrowserCompatibility */
+    #menu li:not(:first-child) {
+        margin-left: .8em;
+    }
+
+/*#endregion */
+
+/*#region forms */
+
+#body {
+    height: 100%;
+}
+
+#fileUploadName {
+    background-color: white;
+    border: 2px inset;
+    text-decoration:initial;
+}
+
+#changePasswordForm input,
+#registerForm input,
+#loginForm input {
+    border: 1px solid #dedede;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#changePasswordForm input[type=text], #changePasswordForm input[type=password],
+#registerForm input[type=text], #registerForm input[type=password],
+#loginForm input[type=text], #loginForm input[type=password] {
+    background: white;
+    width: 220px;
+}
+
+.formulaStable {
+    width:75%;
+    background: url(/images/search.png) no-repeat scroll 7px 7px;
+    padding-left:40px;
+}
+
+.formulaInProgress {
+    width:75%;
+   background: url(/images/ajax-loader.gif) no-repeat scroll 7px 7px;
+   padding-left:40px;
+ }
+
+.blackOverlay {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    visibility:visible;
+    z-index: 10;
+    -webkit-filter:alpha(opacity=30);
+    -moz-filter:alpha(opacity=30);
+    -o-filter:alpha(opacity=30);
+    filter:alpha(opacity=30);
+    -ms-opacity:0.3;
+    opacity:0.3;
+    background:white;
+}
+
+.bottomPaneDesktop {
+    position:fixed;
+    bottom:0;
+    top:0;
+}
+
+.rightPaneDesktop {
+    position:fixed;
+    right:0;
+    left:350px;
+}
+
+#questionPanelDesktop {
+    right:0;
+    left:0;
+    border-top:1px;
+    border-top-style:solid;
+}
+
+.bottomPane {
+    position:fixed;
+    bottom:0;
+    top:200px;
+}
+
+.leftPane {
+    position:fixed;
+    left:0;
+    width:350px;
+}
+
+.rightPane {
+    position:fixed;
+    right:200px;
+    left:350px;
+}
+
+#questionPanel {
+    right:200px;
+    left:0;
+    border-top:1px;
+    border-top-style:solid;
+}
+
+#questionList {
+    border-right:1px;
+    border-right-style:solid;
+}
+
+#answerPane {
+    margin:10px;
+    text-align:left;
+    font-family: monospace;
+    -moz-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.questionItem {
+    width:350px;
+    text-align:center;
+    vertical-align:middle;
+    display:inline-block;
+    border-top:1px;
+    border-bottom:1px;
+    border-top-style:solid;
+    border-bottom-style:solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+}
+
+.selectQuestionItem {
+    font-weight:bold;
+}
+
+.scrollable {
+    overflow-x:hidden;
+}
+
+.scrollable::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px #000000;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+#variablePane {
+    right:0;
+    height:100%;
+    width: 200px;
+    background: #808080;
+    position: fixed;
+    top: 0;
+}
+
+.variableArea {
+    width:170px;
+    height:150px;
+    background:#fff;
+    margin-left:15px;
+    margin-right:15px;
+    margin-top:5px;
+    overflow-x:hidden;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+}
+
+.droppedArea {
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    border:2px solid red;
+}
+
+.variableArea::-webkit-scrollbar {
+    width: 6px;
+}
+
+.variableArea::-webkit-scrollbar-thumb {
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px #000000;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    height: 10px;
+}
+
+.variableArea::-webkit-scrollbar-track {
+    height:0;
+}
+
+#predictedVariableArea {
+    height:34px;
+}
+
+.variableAreaTitle {
+    margin-top:25px;
+    text-align:left;
+    margin-left:15px;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+}
+
+#firstVariableTitle {
+    margin-top:40px;
+}
+
+.linearVariableGroup {
+    width:170px;
+    height:33px;
+}
+
+.randomVariableGroup {
+    width:170px;
+}
+
+.variableBox {
+    border:solid;
+    background-color:#0ff;
+    margin-top:1px;
+    width:164px;
+    overflow:hidden;
+    cursor: pointer;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+}
+
+.internalRandomVariable {
+    width: 130px;
+    margin-left: 34px;
+    -ms-opacity: 0.6;
+    opacity: 0.6;
+}
+
+.dataViz {
+    margin-top: 40px;
+}
+
+.chartWaiting {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 300px;
+    border: 2px;
+    border-style: solid;
+}
+
+.chartAuxilary {
+    width: 150px;
+    height: 300px;
+}
+
+.chartPlaceholder {
+    width: 600px;
+    height: 300px;
+    float: left;
+}
+
+.modelAnalysis {
+    margin-top: 20px;
+}
+
+.rAnalysis {
+    font-family:monospace;
+    text-align:left;
+}
+
+#uploadForm input[type=checkbox]{
+    border: none;
+}
+
+#uploadPanel {
+    display: block;
+    position: relative;
+    float: left;
+    text-align: left;
+    padding: 25px;
+    width: 600px;
+    height: 300px;
+    min-height: 200px;
+    top: 50%;
+    left: 50%;
+    margin-bottom: -75px;
+    margin-left: -300px;
+    z-index: 11;
+}
+
+#sampleDataPanel {
+    padding-left: 292px;
+}
+
+#UploadButtonPanel {
+    width:100%;
+    height:120px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+#UploadUploadButton {
+    float:left;
+    margin-top:100px;
+}
+
+#UploadCancelButton {
+    float:right;
+    margin-right:60px;
+    margin-top:100px;
+}
+
+#localUploadPanel {
+    border-right: solid 2px #c8c8c8;
+    float: left;
+    height: 300px;
+    width: 45%;
+    text-align: left;
+}
+
+#uploadSummaryPanel {
+    margin-left: 40px;
+    float: left;
+    width: 45%;
+    text-align: left;
+}
+
+#uploadSummaryPanel h2 {
+    margin-bottom:  5px;
+}
+
+#loginForm input[type=checkbox]{
+    border: none;
+}
+
+#changePasswordForm input[type=submit] {
+    margin-bottom: .8em;
+}
+
+#registerPanel{
+    display: none;
+    position: fixed;
+    float: left;
+    top: 100px;
+    text-align: left;
+    padding: 25px;
+    width: 600px;
+}
+
+#loginPanel {
+    display: block;
+    position: fixed;
+    float: left;
+    top: 100px;
+    text-align: left;
+    padding: 25px;
+    width: 600px;
+}
+
+#registerPanel h2,
+#loginPanel h2 {
+    padding-bottom: .5em;
+    margin: 0;
+}
+
+#registerPanel a,
+#loginPanel a {
+    color: navy;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#registerPanel p,
+#loginPanel p {
+    clear: both;
+}
+
+#localLoginPanel {
+    border-right: solid 2px #c8c8c8;
+    float: left;
+    width: 45%;
+    text-align: left;
+}
+
+#localRegisterPanel {
+    border-right: solid 2px #c8c8c8;
+    float: left;
+    width: 45%;
+    text-align: left;
+}
+
+#registerSummaryPanel {
+    margin-left: 40px;
+    float: left;
+    width: 45%;
+    text-align: left;
+}
+
+#loginSummaryPanel {
+    margin-left: 40px;
+    float: left;
+    width: 45%;
+    text-align: left;
+}
+
+#loginSummaryPanel h2 {
+    margin-bottom:  5px;
+}
+
+#registerSummaryPanel h2 {
+    margin-bottom:  5px;
+}
+
+#socialLoginList button {
+    margin-bottom: 12px;
+}
+
+#externalLogins {
+    text-align: left;
+    padding-left: 25px;
+}
+
+fieldset {
+    border: none;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: left;
+    display: inline;
+}
+
+    fieldset legend {
+        display: none;
+    }
+
+/* ReSharper disable once CssBrowserCompatibility */
+    fieldset label:not(.checkbox) {
+        display: block;
+        text-align: left;
+    }
+
+    fieldset ol {
+        padding: 0;
+        margin: 0 0 8px 0;
+        list-style: none;
+    }
+
+        fieldset ol li {
+            padding-bottom: 5px;
+        }
+
+ol.round {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/*#endregion */
+
+#title {
+    font-weight: bold;
+    font-size: 2em;
+    margin-bottom:10px;
+}
+
+#main-content {
+    text-align: center;
+    width:100%;
+    height:100%;
+    border-top:50px;
+}
+
+/*#region info and errors */
+.error {
+    float: none;
+    color: red;
+    padding-left: .5em;
+    vertical-align: top;
+}
+
+.validation-summary-errors {
+    color: red;
+    list-style: none;
+    width: 220px;
+    font-size: .8em;
+}
+
+.validation-summary-errors ul{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/*#endregion */
+
+/*#region Unauthorized */
+
+#unauthorized {
+    margin: 3em 0;
+    text-align: center;
+}
+
+    #unauthorized ul {
+        list-style: none;
+        padding: 0;
+        margin: 3em 0;
+    }
+
+    #unauthorized li {
+        display: inline-block;
+        padding: 6px 20px;
+        background-color: #dedede;
+        border: 1px solid gray;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -ms-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+#unauthorized li:first-child {
+            margin-right: 2em;
+        }
+
+/*#endregion */
+
+/*#region Footer */
+
+footer {
+    clear: both;
+    margin: 5em 5em .7em 0;
+    position:absolute;
+    bottom:0;
+}
+
+/*#endregion */
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        margin: .2em 0;
+    }
+
+    header {
+        text-align: center;
+        clear: both;
+    }
+}

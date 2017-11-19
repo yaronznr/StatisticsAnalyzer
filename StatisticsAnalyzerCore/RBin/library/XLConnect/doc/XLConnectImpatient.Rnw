@@ -1,0 +1,156 @@
+% !TEX TS-program = Sweave
+
+\documentclass[10pt,landscape,a4paper]{article}
+
+%\VignetteIndexEntry{XLConnect for the Impatient}
+
+\usepackage[latin1]{inputenc}
+\usepackage[scaled=.9]{couriers}
+\usepackage[colorlinks]{hyperref}
+\usepackage{datetime}
+
+% So that more colours can be used, not only the pre-defined ones
+% List of colours here: http://en.wikibooks.org/wiki/LaTeX/Colors
+\usepackage[usenames,dvipsnames]{color}
+
+% To get URLs in a normal font, by using \urlwofont
+\usepackage{url}
+
+\newcommand{\urlwofont}[1]
+{
+\urlstyle{same}\url{#1}
+}
+
+% Set colours of links in the document
+\hypersetup
+{
+    colorlinks,
+    citecolor	=	black,		% color of links to bibliography
+    filecolor	=	black,		% color of file links
+    linkcolor	=	CadetBlue,	% color of internal links, e.g. Table of Contents
+    urlcolor	=	CadetBlue	% color of external links
+}
+
+% Extra text effects (strikethrough)
+\usepackage{ulem}
+
+% Sexyness
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning}
+\usetikzlibrary{shapes.multipart,shapes.geometric,shapes.symbols,shapes.arrows}
+\usetikzlibrary{decorations.shapes,decorations.text,decorations.pathreplacing}
+
+% For the table
+\usetikzlibrary{matrix}
+
+% Page layout
+\usepackage[parfill]{parskip}
+\usepackage[letterpaper,margin=2cm]{geometry}
+\usepackage{epigraph}
+\usepackage{multicol}
+\usepackage{pdflscape}
+
+% Graphics control.
+\usepackage{graphicx}
+\usepackage{float}
+
+% Extra pretty pretty printing.
+\usepackage{tikzCodeBlock}
+
+% Macros created for this document
+\input{tikzDeviceMacros}
+
+% Make sure you input tikzDeviceMacros first- or
+% LaTeX will smite you!
+\usepackage{Sweave}
+
+<<setup,echo=F,results=hide>>=
+
+	if( !file.exists( 'figs' ) ) dir.create( 'figs' )
+	# require(tikzDevice)
+	
+@
+
+<<setup,echo=F,results=hide>>=
+	require(XLConnect)
+@
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\SweaveOpts{echo=F,prefix.string=figs/fig}
+
+\begin{center}
+\textcolor{MidnightBlue}{\textbf{\huge \pkg{XLConnect} for the Impatient} \\[15pt]}
+\pkg{XLConnect} Version \Sexpr{getOption("XLConnect.Version")}\qquad \monthname, \the\year \\[15pt]
+\end{center}
+
+\begin{tabbing}
+\hspace*{5cm}\= \kill
+\textbf{Installation:} \> \code{install.packages("XLConnect")} \\
+\textbf{Loading library:} \> \code{library(XLConnect)} \\
+\textbf{Help on any function:} \> \code{help(functionName)} \\
+\end{tabbing}
+
+\thispagestyle{empty}
+\pagestyle{empty}
+
+% http://tex.stackexchange.com/questions/69838/positioning-of-rotated-nodes-in-a-matrix
+\begin{tikzpicture}
+
+\tikzstyle{phase} =[draw,fill=white,rotate=90,sloped, minimum width = 14.5em, align=center];
+\tikzstyle{title} =[draw,fill=white,sloped, minimum width = 30em, align=center, minimum height = 3em];
+\tikzstyle{codeEx}=[draw,fill=white,sloped, minimum height = 7em, minimum width = 30em, align=center];
+\tikzstyle{every matrix}=[ampersand replacement={\&}];
+
+    \matrix (xAB)[draw,rounded corners,fill=blue!20]
+    {
+        \node[phase](phase1) {\textbf{Reading / writing} \\ \textbf{a single data region}};\\
+    };
+    
+    \matrix (xA)[right = 0.2cm of xAB,draw,rounded corners,fill=green!20]
+    {
+        \node[codeEx](codeEx1) {\code{data = readWorksheetFromFile(file,...)}};\\[1ex]
+        \node[codeEx](codeEx2) {\code{writeWorksheetToFile(file, data, sheet,...)}};\\
+    };
+    
+    \matrix (xAC)[above = 0.2cm of xA, draw,rounded corners,fill=blue!20]
+    {
+        \node[title](title1) {\textbf{Reading / writing} \\ \textbf{worksheets}};\\
+    };
+
+    \matrix (xB)[right = 0.2cm of xA,draw,rounded corners,fill=green!20]
+    {
+        \node[codeEx](codeEx3) {\code{data = readNamedRegionFromFile(file, name)}}; \\[1ex]
+        \node[codeEx](codeEx4) {\code{writeNamedRegionToFile(file, data, name, ...)}};\\
+    };
+    
+    \matrix (xBD)[above = 0.2cm of xB, draw,rounded corners,fill=blue!20]
+    {
+        \node[title](title2) {\textbf{Reading / writing} \\ \textbf{named regions}};\\
+    };
+    
+    \matrix (xCD)[below = 0.2cm of xAB,draw,rounded corners,fill=blue!20]
+    {
+        \node[phase](phase1) {\textbf{Reading / writing} \\ \textbf{multiple data regions}};\\
+    };
+    
+    \matrix (xC)[below = 0.2cm of xA,draw,rounded corners,fill=green!20]
+    {
+        \node[codeEx](codeEx5) {\code{wb = loadWorkbook(filename)} \\ \code{data1 = readWorksheet(wb,sheet1,...)} \\ \code{data2 = readWorksheet(wb,sheet2,...)} \\ ...}; \\[1ex]
+        \node[codeEx](codeEx6) {\code{wb = loadWorkbook(filename)} \\ \code{createSheet(wb, sheet1)} \\ \code{writeWorksheet(wb, data1, sheet1, ...)} \\ \code{saveWorkbook(wb)}};\\
+    };
+
+    \matrix (xD)[below = 0.2cm of xB,draw,rounded corners,fill=green!20]
+    {
+        \node[codeEx](codeEx7) {\code{wb = loadWorkbook(filename)} \\ \code{data1 = readNamedRegion(wb, name1,...)} \\ \code{data2 = readNamedRegion(wb, name2,...)} \\ ...}; \\[1ex]
+        \node[codeEx](codeEx8) {\code{wb = loadWorkbook(filename)} \\ \code{createName(wb, name1,...)} \\ \code{writeNamedRegion(wb, data1, name1, ...)} \\ \code{saveWorkbook(wb)}};\\
+    };
+    
+\end{tikzpicture}
+
+\vspace{0.5cm}
+\begin{center}
+\url{http://www.mirai-solutions.com}, \url{http://miraisolutions.wordpress.com}
+\end{center}
+
+\end{document}

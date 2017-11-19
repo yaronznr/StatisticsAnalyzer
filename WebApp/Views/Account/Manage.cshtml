@@ -1,0 +1,38 @@
+﻿@model WebApp.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "Manage Account";
+}
+
+<header>
+    <h1>@ViewBag.Title</h1>
+</header>
+
+<div id="main-content">
+    <p>@ViewBag.StatusMessage</p>
+
+    <p>You're logged in as <strong>@User.Identity.Name</strong>.</p>
+    <p>@Html.ActionLink("Back to Data Analysis", "Index", "Home")</p>
+
+    <div class="todoList" id="loginPanel">
+        <section id="localLoginPanel">
+            @if (ViewBag.HasLocalPassword)
+            {
+                @Html.Partial("_ChangePasswordPartial")
+            }
+            else
+            { 
+                @Html.Partial("_SetPasswordPartial")
+            }
+        </section>
+        <section id="loginSummaryPanel">
+            <h3>Dateset Analysis</h3>
+        </section>
+    </div>
+
+    <div class="todoList" id="registerPanel">
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

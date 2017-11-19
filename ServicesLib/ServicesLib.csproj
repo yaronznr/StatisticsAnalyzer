@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1690CD1-08B8-4089-B39A-9996D514F250}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServicesLib</RootNamespace>
+    <AssemblyName>ServicesLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalyzerService.cs" />
+    <Compile Include="EnvironmentService.cs" />
+    <Compile Include="ExcelService.cs" />
+    <Compile Include="ExtentionMethods.cs" />
+    <Compile Include="ModelService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RService.cs" />
+    <Compile Include="ServiceContainer.cs" />
+    <Compile Include="StorageService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AzureCore\AzureCore.csproj">
+      <Project>{791abeca-3414-4eef-bb02-b375d4138c91}</Project>
+      <Name>AzureCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExcelLib\ExcelLib.csproj">
+      <Project>{c7700841-61ff-420f-8081-d6cb45c7fc13}</Project>
+      <Name>ExcelLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\REngine\REngine.csproj">
+      <Project>{b36f4a8d-5c48-48db-8b8c-6ddae5e3d3ab}</Project>
+      <Name>REngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StatisticsAnalyzerCore\StatisticsAnalyzerCore.csproj">
+      <Project>{f4ced346-05b7-4f7d-8b65-968be4841f45}</Project>
+      <Name>StatisticsAnalyzerCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

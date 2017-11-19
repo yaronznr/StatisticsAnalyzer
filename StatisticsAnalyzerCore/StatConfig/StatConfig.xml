@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MixedConfig>
+  <FixedEffects>
+    <SigLevel>0.05</SigLevel>
+    <MinNumericalLevels>5</MinNumericalLevels>
+  </FixedEffects>
+  <RandomEffects>
+    <SigLevel>0.05</SigLevel>
+    <RandomLevelCountsWarn>8</RandomLevelCountsWarn>
+    <RandomLevelCountExclude>5</RandomLevelCountExclude>
+    <FixedEffectTest>FTest</FixedEffectTest> <!-- FTest (KR DF) | ChiSquare -->
+    <LargeSampleN>20000</LargeSampleN>
+    <MinCoveringScoreCovariate>0.75</MinCoveringScoreCovariate>
+  </RandomEffects>
+  <AssumptionTests>
+    <LeveneTest>
+      <SigLevel>0.01</SigLevel>      
+    </LeveneTest>
+    <BrueshPaganTest>
+      <SigLevel>0.01</SigLevel>
+    </BrueshPaganTest>
+    <DurbinWatsonTest>
+      <SigLevel>0.01</SigLevel>
+    </DurbinWatsonTest>
+    <ShapiroWilkTest>
+      <SigLevel>0.01</SigLevel>
+      <MaxSampleCount>1000</MaxSampleCount>
+    </ShapiroWilkTest>
+    <InfluenceTests>
+      <OutlierVariance>2.5</OutlierVariance>
+      <CooksDistance>One</CooksDistance>
+    </InfluenceTests>
+  </AssumptionTests>
+  <ModelSuggestion>
+    <SuggestRandomEffectForNestedVariables>TRUE</SuggestRandomEffectForNestedVariables>
+    <SuggestInteractionForBalancedVariables>TRUE</SuggestInteractionForBalancedVariables>
+    <AllowRandomCovariateWithoutMainEffect>FALSE</AllowRandomCovariateWithoutMainEffect>
+  </ModelSuggestion>
+  <MultipleComparison>
+    <BenjaminiHochberg>
+      <QLevel>0.2</QLevel>
+      <AssumeIndependence>FALSE</AssumeIndependence>
+    </BenjaminiHochberg>
+  </MultipleComparison>
+</MixedConfig>
+  

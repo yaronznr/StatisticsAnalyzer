@@ -1,0 +1,104 @@
+﻿@functions{
+
+    public string GetFileName()
+    {
+        string blobName;
+        try
+        {
+            blobName = ServicesLib.ServiceContainer.StorageService().GetCurrentExcelName(User.Identity.Name);
+        }
+        catch
+        {
+            blobName = "$$$.$$$";
+        }
+        blobName = (blobName == "$$$.$$$" || string.IsNullOrEmpty(blobName)) ? null : blobName;
+        return blobName ?? "No File Selected";
+    }
+
+    public string AddFloatLeft(bool shouldFloatLeft)
+    {
+        if (shouldFloatLeft)
+        {
+            return "float: left; margin-left: 12.5px;";
+        }
+        return string.Empty;
+    }
+    
+    public string GetUserDisplayName()
+    {
+        if (!User.Identity.IsAuthenticated || 
+            string.IsNullOrEmpty(User.Identity.Name) == null || User.Identity.Name.StartsWith("Temp"))
+        {
+            return "Guest";
+        }
+        
+        return User.Identity.Name;
+    }
+    
+    public string GetLogOutText()
+    {
+        if (!User.Identity.IsAuthenticated ||
+            string.IsNullOrEmpty(User.Identity.Name) == null || User.Identity.Name.StartsWith("Temp"))
+        {
+            return "Register";
+        }
+
+        return "Log Out";
+    }
+
+}
+
+@helper MenuItem(string action, string controller, string id, string text, bool isActive)
+{
+    if (isActive)
+    {
+        using (Html.BeginForm(action, controller, new { area = "" }, FormMethod.Post, new
+        {
+            id,
+            @class = "optionsMenuItem"
+        }))
+        {
+        @Html.AntiForgeryToken()
+        <a class="optionsMenuLink" href="javascript:document.getElementById('@id').submit()">@text</a>
+        }
+    }
+    else
+    {
+        <div class="optionsMenuItem">@text</div>
+    }    
+}
+
+@helper ToolbarItem(string action, string controller, string id, string text, bool shouldFloatLeft)
+{
+    using (Html.BeginForm(action, controller, new { area = "" }, FormMethod.Post, new
+    {
+        id,
+    }))
+    {
+    @Html.AntiForgeryToken()
+    <a style="@AddFloatLeft(shouldFloatLeft)" href="javascript:document.getElementById('@id').submit()">@text</a>
+    }
+}
+
+@if (!Request.RawUrl.EndsWith("Login"))
+{
+    <div id="userSettingsBar">
+        <script>
+            window.pageLoadFileName = '@GetFileName()';
+        </script>
+        @ToolbarItem("Download", "Home", "downloadForm", "Download Report", true)
+        <div id="userSettings">
+            Hello, @GetUserDisplayName()
+            <form><a data-bind="click: showFileDialog, text: currentFileName" href="javascript:document.getElementById('logoutForm').submit()"></a></form>
+            <!-- form><a data-bind="click: showOptionsMenu"><img id="cogMenu" src="images/cog.png"/></a></!-->
+            @ToolbarItem("LogOff", "Account", "logoutForm", GetLogOutText(), false)
+        </div>
+    </div>
+    <div id="optionsMenu">
+        @MenuItem("LogOff", "Account", "logoutForm", "Decent Data Files", false)
+        @MenuItem("LogOff", "Account", "logoutForm", "Recent Models", false)
+        @MenuItem("LogOff", "Account", "logoutForm", "Confidence Intervals", false)
+        @MenuItem("Download", "Home", "downloadForm", "Download Report", true)
+        @MenuItem("LogOff", "Account", "logoutForm", "Log off", true)
+    </div>      
+}
