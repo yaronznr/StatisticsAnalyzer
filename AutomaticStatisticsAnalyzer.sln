@@ -17,47 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesLib", "ServicesLib\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopApp", "DesktopApp\DesktopApp.csproj", "{D1F842FF-9AB6-4A0F-97C9-C8CC1C0EDC02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GwasAnalyze", "ConsoleApplication1\GwasAnalyze.csproj", "{CB203CC1-E278-49C9-A771-DE4FBF611E00}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground", "Playground\Playground.csproj", "{7D874840-14EF-46F6-AFC7-CC21758DD519}"
-EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 11
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://mixedmodel.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = ExcelLib\\ExcelLib.csproj
-		SccProjectName1 = ExcelLib
-		SccLocalPath1 = ExcelLib
-		SccProjectUniqueName2 = StatisticsAnalyzerCore\\StatisticsAnalyzerCore.csproj
-		SccProjectName2 = StatisticsAnalyzerCore
-		SccLocalPath2 = StatisticsAnalyzerCore
-		SccProjectUniqueName3 = REngine\\REngine.csproj
-		SccProjectName3 = REngine
-		SccLocalPath3 = REngine
-		SccProjectUniqueName4 = AzureCore\\AzureCore.csproj
-		SccProjectName4 = AzureCore
-		SccLocalPath4 = AzureCore
-		SccProjectUniqueName5 = WebR\\WebR.csproj
-		SccProjectName5 = WebR
-		SccLocalPath5 = WebR
-		SccProjectUniqueName6 = WebApp\\WebApp.csproj
-		SccProjectName6 = WebApp
-		SccLocalPath6 = WebApp
-		SccProjectUniqueName7 = ServicesLib\\ServicesLib.csproj
-		SccProjectName7 = ServicesLib
-		SccLocalPath7 = ServicesLib
-		SccProjectUniqueName8 = DesktopApp\\DesktopApp.csproj
-		SccProjectName8 = DesktopApp
-		SccLocalPath8 = DesktopApp
-		SccProjectUniqueName9 = ConsoleApplication1\\GwasAnalyze.csproj
-		SccProjectName9 = ConsoleApplication1
-		SccLocalPath9 = ConsoleApplication1
-		SccProjectUniqueName10 = Playground\\Playground.csproj
-		SccProjectName10 = Playground
-		SccLocalPath10 = Playground
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -95,14 +55,6 @@ Global
 		{D1F842FF-9AB6-4A0F-97C9-C8CC1C0EDC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1F842FF-9AB6-4A0F-97C9-C8CC1C0EDC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1F842FF-9AB6-4A0F-97C9-C8CC1C0EDC02}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CB203CC1-E278-49C9-A771-DE4FBF611E00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB203CC1-E278-49C9-A771-DE4FBF611E00}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB203CC1-E278-49C9-A771-DE4FBF611E00}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB203CC1-E278-49C9-A771-DE4FBF611E00}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D874840-14EF-46F6-AFC7-CC21758DD519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D874840-14EF-46F6-AFC7-CC21758DD519}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D874840-14EF-46F6-AFC7-CC21758DD519}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D874840-14EF-46F6-AFC7-CC21758DD519}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
