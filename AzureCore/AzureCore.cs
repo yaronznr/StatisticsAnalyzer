@@ -12,7 +12,7 @@ namespace AzureCore
     public abstract class FileHelper
     {
         public string DefaultStorageAccount = "mixedmodel";
-        public string DefaultStorageKey = "m3Oc6Y9BXOADjluwo82O0HLXTa3RV9x8sD+pONXXXHU3DPuqPt5DXZaYv9Of9iagQuZD8upxBIow245PN3cOEA==";
+        public string DefaultStorageKey = "";
 
         public abstract void UploadBlob(
             string storageAccount,
